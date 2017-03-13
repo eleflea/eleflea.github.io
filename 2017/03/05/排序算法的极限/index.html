@@ -9,8 +9,8 @@
     
     <meta name="author" content="eleflea">
     
-    <meta name="description" content="首先说排序算法时间复杂度的极限是$$O(n)$$。这点可以从信息论的角度考虑：你要排序一个数组，你至少要知道它们每个都是什么，所以必然要遍历数组。这就使得算法的时间复杂度至少为$$O(n)$$。因为这是必要的信息。
-同理可以考虑比较排序的方法：每次比较我们得到的信息是$$3$$种（大于、小于、等于）">
+    <meta name="description" content="首先说排序算法时间复杂度的极限是$O(n)​$。这点可以从信息论的角度考虑：你要排序一个数组，你至少要知道它们每个都是什么，所以必然要遍历数组。这就使得算法的时间复杂度至少为$O(n)​$。因为这是必要的信息。
+同理可以考虑比较排序的方法：每次比较我们得到的信息是$3$种（大于、小于、等于），但由于">
     
     
     
@@ -37,7 +37,7 @@
 				<h1 class="site-name"><a href="/" title="eleflea&#39;s Blog">eleflea&#39;s Blog</a></h1>
 				<h2 class="blog-motto">记载某一条世界线</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -50,7 +50,7 @@
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:eleflea.github.io">
 					</form>
 					
@@ -74,7 +74,7 @@
     </p>
   <p class="article-time">
     <time datetime="2017-03-05T09:18:02.000Z" itemprop="datePublished">2017-03-05</time>
-    Updated:<time datetime="2017-03-13T04:48:31.629Z" itemprop="dateModified">2017-03-13</time>
+    更新日期:<time datetime="2017-03-13T05:23:00.743Z" itemprop="dateModified">2017-03-13</time>
     
   </p>
 </header>
@@ -82,13 +82,13 @@
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
+			<strong class="toc-title">文章目錄</strong>
 		
 		</div>
 		
-		<p>首先说排序算法时间复杂度的极限是$$O(n)$$。这点可以从信息论的角度考虑：你要排序一个数组，你至少要知道它们每个都是什么，所以必然要遍历数组。这就使得算法的时间复杂度至少为$$O(n)$$。因为这是必要的信息。</p>
-<p>同理可以考虑比较排序的方法：每次比较我们得到的信息是$$3$$种（大于、小于、等于），但由于等于这种信息不会对排序造成影响（事实上，它可以和大于或者小于放在一起）。这样我们就得到$$2$$种可能性。$$n$$个元素所有可能性的复杂度是$$O(n!)$$。$$n$$次比较的复杂度是$$O(2^n)$$。二者相除，通过一些数学可以知道，比较次数复杂度是$$O(n\lg{n})$$。</p>
-<p>用这种方法，我们也可以知道，为什么乱序的数组，找到一个元素时间复杂度是$$O(n)$$，而排好序的数组只需要$$O(\lg{n})$$次。</p>
+		<p>首先说排序算法时间复杂度的极限是$O(n)​$。这点可以从信息论的角度考虑：你要排序一个数组，你至少要知道它们每个都是什么，所以必然要遍历数组。这就使得算法的时间复杂度至少为$O(n)​$。因为这是必要的信息。</p>
+<p>同理可以考虑比较排序的方法：每次比较我们得到的信息是$3$种（大于、小于、等于），但由于等于这种信息不会对排序造成影响（事实上，它可以和大于或者小于放在一起）。这样我们就得到$2$种可能性。$n$个元素所有可能性的复杂度是$O(n!)$。$n$次比较的复杂度是$O(2^n)$。二者相除，通过一些数学可以知道，比较次数复杂度是$O(n\lg{n})$。</p>
+<p>用这种方法，我们也可以知道，为什么乱序的数组，找到一个元素时间复杂度是$O(n)$，而排好序的数组只需要$O(\lg{n})$次。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -133,22 +133,22 @@
 
 	
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
+  <strong class="toc-title">文章目錄</strong>
   
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
@@ -196,7 +196,7 @@
 
 
   <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS</a>
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
 </aside>
