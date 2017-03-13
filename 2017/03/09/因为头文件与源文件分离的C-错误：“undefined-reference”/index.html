@@ -1,0 +1,349 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+  
+    <title>因为头文件与源文件分离的C++ 错误：“undefined reference” | eleflea&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="eleflea">
+    
+    <meta name="description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
+此工程在VS下可以运行，但在code::blocks下却一直报错。
+12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace st">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.svg" alt="eleflea&#39;s Blog" title="eleflea&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="eleflea&#39;s Blog">eleflea&#39;s Blog</a></h1>
+				<h2 class="blog-motto">记载某一条世界线</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:eleflea.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/" title="因为头文件与源文件分离的C++ 错误：“undefined reference”" itemprop="url">因为头文件与源文件分离的C++ 错误：“undefined reference”</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="https://eleflea.github.io" title="eleflea">eleflea</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2017-03-09T01:09:05.000Z" itemprop="datePublished">2017-03-09</time>
+    更新日期:<time datetime="2017-03-13T04:55:05.666Z" itemprop="dateModified">2017-03-13</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		
+		</div>
+		
+		<p>昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：</p>
+<p>此工程在VS下可以运行，但在code::blocks下却一直报错。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pt.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Point pt;</div><div class="line">    pt.x = <span class="number">3</span>;</div><div class="line">    pt.y = <span class="number">5</span>;</div><div class="line">    pt.output();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Point &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">int</span> y;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">output</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pt.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> Point::output() &#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">" "</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如上，问题就是出在<code>Point::output</code>这个函数上，经过我查找各种资料，我终于明白了是link的时候pt.cpp没有被包含在内，导致<code>main</code>函数找不到<code>Point::output</code>函数的定义，因此报错。</p>
+<p>我又在网上查来查去，最后终于找到解决方法：</p>
+<p><img src="https://miao.su/images/2017/03/09/buildtargetsd8b73.png" alt="build targets"></p>
+<p>在工程上右键选择最后一项Properties（属性），点开Build targets选项卡，将下面的Build target files里的.cpp文件都勾上，就可以了。顺便我用的编译器是g++ 5.1.0。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/C/">C++</a><a href="/tags/code-blocks/">code::blocks</a><a href="/tags/undefined-reference/">undefined reference</a><a href="/tags/编程/">编程</a><a href="/tags/错误/">错误</a>
+  </div>
+
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="https://eleflea.github.io/2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/" data-title="因为头文件与源文件分离的C++ 错误：“undefined reference” | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/03/10/大物实验/" title="大物实验">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  大物实验</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/03/05/时间复杂度里奇怪的“lg”/"  title="时间复杂度里奇怪的“lg”">
+ <strong>NEXT:</strong><br/> 
+ <span>时间复杂度里奇怪的“lg”
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+		
+			<li><a href="/tags/MTJJ/" title="MTJJ">MTJJ<sup>1</sup></a></li>
+		
+			<li><a href="/tags/code-blocks/" title="code::blocks">code::blocks<sup>1</sup></a></li>
+		
+			<li><a href="/tags/undefined-reference/" title="undefined reference">undefined reference<sup>1</sup></a></li>
+		
+			<li><a href="/tags/东北大学/" title="东北大学">东北大学<sup>1</sup></a></li>
+		
+			<li><a href="/tags/信息论/" title="信息论">信息论<sup>2</sup></a></li>
+		
+			<li><a href="/tags/动漫/" title="动漫">动漫<sup>1</sup></a></li>
+		
+			<li><a href="/tags/半导体/" title="半导体">半导体<sup>1</sup></a></li>
+		
+			<li><a href="/tags/复杂度/" title="复杂度">复杂度<sup>2</sup></a></li>
+		
+			<li><a href="/tags/大物/" title="大物">大物<sup>1</sup></a></li>
+		
+			<li><a href="/tags/实验/" title="实验">实验<sup>1</sup></a></li>
+		
+			<li><a href="/tags/导体/" title="导体">导体<sup>1</sup></a></li>
+		
+			<li><a href="/tags/排序/" title="排序">排序<sup>2</sup></a></li>
+		
+			<li><a href="/tags/物理/" title="物理">物理<sup>2</sup></a></li>
+		
+			<li><a href="/tags/算法/" title="算法">算法<sup>2</sup></a></li>
+		
+			<li><a href="/tags/绝缘体/" title="绝缘体">绝缘体<sup>1</sup></a></li>
+		
+			<li><a href="/tags/编程/" title="编程">编程<sup>3</sup></a></li>
+		
+			<li><a href="/tags/罗小黑/" title="罗小黑">罗小黑<sup>1</sup></a></li>
+		
+			<li><a href="/tags/罗小黑战记/" title="罗小黑战记">罗小黑战记<sup>1</sup></a></li>
+		
+			<li><a href="/tags/量子物理/" title="量子物理">量子物理<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2017 
+		
+		<a href="https://eleflea.github.io" target="_blank" title="eleflea">eleflea</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
