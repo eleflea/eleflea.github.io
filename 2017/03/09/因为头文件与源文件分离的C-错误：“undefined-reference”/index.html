@@ -13,21 +13,48 @@
     
     <meta name="description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
 此工程在VS下可以运行，但在code::blocks下却一直报错。
-12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace std;int main()&amp;#123;    Point pt;    pt.x = 3;    pt">
+#include &amp;lt;iostream&amp;gt;
+#include &amp;quot;pt.h&amp;quot;
+
+using namespace std;
+
+int main()
+{
+    Point pt;
+    pt.x = 3;
+    pt.y">
 <meta property="og:type" content="article">
 <meta property="og:title" content="因为头文件与源文件分离的C++ 错误：“undefined reference”">
 <meta property="og:url" content="https://eleflea.github.io/2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/index.html">
 <meta property="og:site_name" content="eleflea's Blog">
 <meta property="og:description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
 此工程在VS下可以运行，但在code::blocks下却一直报错。
-12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace std;int main()&amp;#123;    Point pt;    pt.x = 3;    pt">
+#include &amp;lt;iostream&amp;gt;
+#include &amp;quot;pt.h&amp;quot;
+
+using namespace std;
+
+int main()
+{
+    Point pt;
+    pt.x = 3;
+    pt.y">
 <meta property="og:image" content="https://miao.su/images/2017/03/09/buildtargetsd8b73.png">
 <meta property="og:updated_time" content="2017-03-13T04:55:05.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="因为头文件与源文件分离的C++ 错误：“undefined reference”">
 <meta name="twitter:description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
 此工程在VS下可以运行，但在code::blocks下却一直报错。
-12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace std;int main()&amp;#123;    Point pt;    pt.x = 3;    pt">
+#include &amp;lt;iostream&amp;gt;
+#include &amp;quot;pt.h&amp;quot;
+
+using namespace std;
+
+int main()
+{
+    Point pt;
+    pt.x = 3;
+    pt.y">
 <meta name="twitter:image" content="https://miao.su/images/2017/03/09/buildtargetsd8b73.png">
 
     
@@ -112,9 +139,37 @@
 		
 		<p>昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：</p>
 <p>此工程在VS下可以运行，但在code::blocks下却一直报错。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pt.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Point pt;</div><div class="line">    pt.x = <span class="number">3</span>;</div><div class="line">    pt.y = <span class="number">5</span>;</div><div class="line">    pt.output();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Point &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">int</span> y;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">output</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pt.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> Point::output() &#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">" "</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &quot;pt.h&quot;
+
+using namespace std;
+
+int main()
+{
+    Point pt;
+    pt.x = 3;
+    pt.y = 5;
+    pt.output();
+    return 0;
+}
+</code></pre>
+<pre><code class="c++">class Point {
+public:
+    int x;
+    int y;
+    int output();
+};
+</code></pre>
+<pre><code class="c++">#include &lt;iostream&gt;
+#include &quot;pt.h&quot;
+
+using namespace std;
+
+int Point::output() {
+    cout &lt;&lt; x &lt;&lt; &quot; &quot; &lt;&lt; y &lt;&lt; endl;
+    return 0;
+}
+</code></pre>
 <p>如上，问题就是出在<code>Point::output</code>这个函数上，经过我查找各种资料，我终于明白了是link的时候pt.cpp没有被包含在内，导致<code>main</code>函数找不到<code>Point::output</code>函数的定义，因此报错。</p>
 <p>我又在网上查来查去，最后终于找到解决方法：</p>
 <p><img src="https://miao.su/images/2017/03/09/buildtargetsd8b73.png" alt="build targets"></p>
