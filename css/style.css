@@ -1063,7 +1063,7 @@ article .article-content strong code,
 article .article-content em code,
 article .article-content table th>code,
 article .article-content table td>code {
-  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+  font-family: Monaco, Menlo, Consolas, Courier New, monospace;
   background: #eee;
   color: #d14;
   border: 1px solid #d6d6d6;
@@ -2105,7 +2105,7 @@ footer {
   background: #2d2d2d;
   margin: 0.5em 0;
   padding: 0.5em 2%;
-  color: #f8f8f2;
+  color: #ccc;
   line-height: 1.5;
   font-size: 0.8em;
   -webkit-border-radius: 0.35em;
@@ -2132,7 +2132,7 @@ footer {
   }
 }
 .article-content pre {
-  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+  font-family: Monaco, Menlo, Consolas, Courier New, monospace;
 }
 .article-content .highlight {
   overflow: auto;
@@ -2192,7 +2192,7 @@ footer {
 }
 .article-content .gist .gist-file {
   border: none;
-  font-family: Menlo, Monaco, Consolas, Courier New, monospace;
+  font-family: Monaco, Menlo, Consolas, Courier New, monospace;
   margin: 0;
 }
 .article-content .gist .gist-file .gist-data {
@@ -2244,7 +2244,7 @@ pre .html .doctype,
 pre .css .id,
 pre .css .class,
 pre .css .pseudo {
-  color: #f92670;
+  color: #f2777a;
 }
 pre .number,
 pre .preprocessor,
@@ -2257,7 +2257,7 @@ pre .constant {
 pre .class,
 pre .ruby .class .title,
 pre .css .rules .attribute {
-  color: #a6e22e;
+  color: #9c9;
 }
 pre .string,
 pre .value,
@@ -2265,7 +2265,7 @@ pre .inheritance,
 pre .header,
 pre .ruby .symbol,
 pre .xml .cdata {
-  color: #a6e22e;
+  color: #9c9;
 }
 pre .css .hexcolor {
   color: #6cc;
@@ -2278,11 +2278,75 @@ pre .ruby .title .keyword,
 pre .perl .sub,
 pre .javascript .title,
 pre .coffeescript .title {
-  color: #62d0e6;
+  color: #69c;
 }
 pre .keyword,
 pre .javascript .function {
-  color: #ad7ff7;
+  color: #c9c;
+}
+.highlight {
+  color: #f8f8f2;
+  background: #23241f;
+}
+.highlight .code .highlight,
+.highlight .code .tag,
+.highlight .code .subst {
+  color: #f8f8f2;
+}
+.highlight .code .strong,
+.highlight .code .emphasis {
+  color: #a8a8a2;
+}
+.highlight .code .bullet,
+.highlight .code .quote,
+.highlight .code .number,
+.highlight .code .regexp,
+.highlight .code .literal,
+.highlight .code .link {
+  color: #ae81ff;
+}
+.highlight .code .code,
+.highlight .code .title,
+.highlight .code .section,
+.highlight .code .selector-class {
+  color: #a6e22e;
+}
+.highlight .code .strong {
+  font-weight: bold;
+}
+.highlight .code .emphasis {
+  font-style: italic;
+}
+.highlight .code .keyword,
+.highlight .code .selector-tag,
+.highlight .code .name,
+.highlight .code .attr {
+  color: #f92672;
+}
+.highlight .code .symbol,
+.highlight .code .attribute {
+  color: #66d9ef;
+}
+.highlight .code .params,
+.highlight .code .class .title {
+  color: #f8f8f2;
+}
+.highlight .code .string,
+.highlight .code .type,
+.highlight .code .built_in,
+.highlight .code .builtin-name,
+.highlight .code .selector-id,
+.highlight .code .selector-attr,
+.highlight .code .selector-pseudo,
+.highlight .code .addition,
+.highlight .code .variable,
+.highlight .code .template-variable {
+  color: #e6db74;
+}
+.highlight .code .comment,
+.highlight .code .deletion,
+.highlight .code .meta {
+  color: #75715e;
 }
 .gallery {
   overflow: hidden;

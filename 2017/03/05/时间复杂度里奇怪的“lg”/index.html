@@ -11,16 +11,16 @@
     
 
     
-    <meta name="description" content="我刚开始接触时间复杂度的时候，有一个地方是我困惑了很久。大家都了解的归并排序，时间复杂度是$O(n\lg{n})$，通常使用二路归并，所以就是以为底，通常使用二路归并，所以就是以$2$为底$n$的对数。这里可能有些人和我有一样的疑问：如果使用$3$路、 $4$路归并呢？是不是会降低算法的时间复杂度呢？其实不会，因为通过换底公式 可以证明$O(\log{2}{n})$：等于$O(\log{a}{n}">
+    <meta name="description" content="我刚开始接触时间复杂度的时候，有一个地方是我困惑了很久。大家都了解的归并排序，时间复杂度是$O(n\lg{n})$，通常使用二路归并，所以就是以为底，通常使用二路归并，所以就是以$2$为底$n$的对数。这里可能有些人和我有一样的疑问：如果使用$3 $路、 $4  $路归并呢？是不是会降低算法的时间复杂度呢？其实不会，因为通过换底公式 可以证明：$O(\log{2}{n})$等于$O(\log{a}">
 <meta property="og:type" content="article">
 <meta property="og:title" content="时间复杂度里奇怪的“lg”">
 <meta property="og:url" content="https://eleflea.github.io/2017/03/05/时间复杂度里奇怪的“lg”/index.html">
 <meta property="og:site_name" content="eleflea's Blog">
-<meta property="og:description" content="我刚开始接触时间复杂度的时候，有一个地方是我困惑了很久。大家都了解的归并排序，时间复杂度是$O(n\lg{n})$，通常使用二路归并，所以就是以为底，通常使用二路归并，所以就是以$2$为底$n$的对数。这里可能有些人和我有一样的疑问：如果使用$3$路、 $4$路归并呢？是不是会降低算法的时间复杂度呢？其实不会，因为通过换底公式 可以证明$O(\log{2}{n})$：等于$O(\log{a}{n}">
-<meta property="og:updated_time" content="2017-03-13T06:51:41.663Z">
+<meta property="og:description" content="我刚开始接触时间复杂度的时候，有一个地方是我困惑了很久。大家都了解的归并排序，时间复杂度是$O(n\lg{n})$，通常使用二路归并，所以就是以为底，通常使用二路归并，所以就是以$2$为底$n$的对数。这里可能有些人和我有一样的疑问：如果使用$3 $路、 $4  $路归并呢？是不是会降低算法的时间复杂度呢？其实不会，因为通过换底公式 可以证明：$O(\log{2}{n})$等于$O(\log{a}">
+<meta property="og:updated_time" content="2017-03-14T01:12:13.113Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="时间复杂度里奇怪的“lg”">
-<meta name="twitter:description" content="我刚开始接触时间复杂度的时候，有一个地方是我困惑了很久。大家都了解的归并排序，时间复杂度是$O(n\lg{n})$，通常使用二路归并，所以就是以为底，通常使用二路归并，所以就是以$2$为底$n$的对数。这里可能有些人和我有一样的疑问：如果使用$3$路、 $4$路归并呢？是不是会降低算法的时间复杂度呢？其实不会，因为通过换底公式 可以证明$O(\log{2}{n})$：等于$O(\log{a}{n}">
+<meta name="twitter:description" content="我刚开始接触时间复杂度的时候，有一个地方是我困惑了很久。大家都了解的归并排序，时间复杂度是$O(n\lg{n})$，通常使用二路归并，所以就是以为底，通常使用二路归并，所以就是以$2$为底$n$的对数。这里可能有些人和我有一样的疑问：如果使用$3 $路、 $4  $路归并呢？是不是会降低算法的时间复杂度呢？其实不会，因为通过换底公式 可以证明：$O(\log{2}{n})$等于$O(\log{a}">
 
     
     <link rel="alternative" href="/atom.xml" title="eleflea&#39;s Blog" type="application/atom+xml">
@@ -48,7 +48,7 @@
 				<h1 class="site-name"><a href="/" title="eleflea&#39;s Blog">eleflea&#39;s Blog</a></h1>
 				<h2 class="blog-motto">记载某一条世界线</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -66,7 +66,7 @@
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:eleflea.github.io">
 					</form>
 					
@@ -89,20 +89,20 @@
 		<a href="/about" title="eleflea" target="_blank" itemprop="author">eleflea</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-05T10:21:46.000Z" itemprop="datePublished"> 發表於 2017-03-05</time>
+    <time datetime="2017-03-05T10:21:46.000Z" itemprop="datePublished"> Published 2017-03-05</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			
 		
 		</div>
 		
-		<p>我刚开始接触时间复杂度的时候，有一个地方是我困惑了很久。大家都了解的<a href="https://zh.wikipedia.org/zh-cn/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F" target="_blank" rel="external">归并排序</a>，时间复杂度是$O(n\lg{n})$，通常使用二路归并，所以就是以为底，通常使用二路归并，所以就是以$2$为底$n$的对数。这里可能有些人和我有一样的疑问：如果使用$3$路、 $4$路归并呢？是不是会降低算法的时间复杂度呢？其实不会，因为通过<a href="https://zh.wikipedia.org/wiki/%E5%AF%B9%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F#.E6.8D.A2.E5.BA.95.E5.85.AC.E5.BC.8F" target="_blank" rel="external">换底公式</a> 可以证明$O(\log<em>{2}{n})$：等于$O(\log</em>{a}{n})$($a$为常数 ) ，所以所有的对数复杂度都是一样的。</p>
+		<p>我刚开始接触时间复杂度的时候，有一个地方是我困惑了很久。大家都了解的<a href="https://zh.wikipedia.org/zh-cn/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F" target="_blank" rel="external">归并排序</a>，时间复杂度是$O(n\lg{n})$，通常使用二路归并，所以就是以为底，通常使用二路归并，所以就是以$2$为底$n$的对数。这里可能有些人和我有一样的疑问：如果使用$3 $路、 $4  $路归并呢？是不是会降低算法的时间复杂度呢？其实不会，因为通过<a href="https://zh.wikipedia.org/wiki/%E5%AF%B9%E6%95%B0%E6%81%92%E7%AD%89%E5%BC%8F#.E6.8D.A2.E5.BA.95.E5.85.AC.E5.BC.8F" target="_blank" rel="external">换底公式</a> 可以证明：$O(\log<em>{2}{n})$等于$O(\log</em>{a}{n})$($a$为常数 ) ，所以所有的对数复杂度都是一样的。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -159,34 +159,24 @@
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">Contents</strong>
  
  
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
-
-  
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="https://github.com/eleflea" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
 
   
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -226,23 +216,19 @@
 			
 		
 			
-				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+				<li><a href="/tags/错误/" title="错误">错误<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/code-blocks/" title="code::blocks">code::blocks<sup>1</sup></a></li>
+				<li><a href="/tags/东北大学/" title="东北大学">东北大学<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/undefined-reference/" title="undefined reference">undefined reference<sup>1</sup></a></li>
+				<li><a href="/tags/大物/" title="大物">大物<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/动漫/" title="动漫">动漫<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/错误/" title="错误">错误<sup>1</sup></a></li>
 			
 		
 			
@@ -254,11 +240,15 @@
 			
 		
 			
-				<li><a href="/tags/东北大学/" title="东北大学">东北大学<sup>1</sup></a></li>
+				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/大物/" title="大物">大物<sup>1</sup></a></li>
+				<li><a href="/tags/code-blocks/" title="code::blocks">code::blocks<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/undefined-reference/" title="undefined reference">undefined reference<sup>1</sup></a></li>
 			
 		
 			
@@ -274,7 +264,7 @@
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -293,11 +283,11 @@
 </div>
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
 </div>
 
@@ -530,7 +520,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 

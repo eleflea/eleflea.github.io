@@ -13,48 +13,21 @@
     
     <meta name="description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
 此工程在VS下可以运行，但在code::blocks下却一直报错。
-#include &amp;lt;iostream&amp;gt;
-#include &amp;quot;pt.h&amp;quot;
-
-using namespace std;
-
-int main()
-{
-    Point pt;
-    pt.x = 3;
-    pt.y">
+12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace std;int main()&amp;#123;    Point pt;    pt.x = 3;    pt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="因为头文件与源文件分离的C++ 错误：“undefined reference”">
 <meta property="og:url" content="https://eleflea.github.io/2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/index.html">
 <meta property="og:site_name" content="eleflea's Blog">
 <meta property="og:description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
 此工程在VS下可以运行，但在code::blocks下却一直报错。
-#include &amp;lt;iostream&amp;gt;
-#include &amp;quot;pt.h&amp;quot;
-
-using namespace std;
-
-int main()
-{
-    Point pt;
-    pt.x = 3;
-    pt.y">
+12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace std;int main()&amp;#123;    Point pt;    pt.x = 3;    pt">
 <meta property="og:image" content="https://miao.su/images/2017/03/09/buildtargetsd8b73.png">
 <meta property="og:updated_time" content="2017-03-13T04:55:05.666Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="因为头文件与源文件分离的C++ 错误：“undefined reference”">
 <meta name="twitter:description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
 此工程在VS下可以运行，但在code::blocks下却一直报错。
-#include &amp;lt;iostream&amp;gt;
-#include &amp;quot;pt.h&amp;quot;
-
-using namespace std;
-
-int main()
-{
-    Point pt;
-    pt.x = 3;
-    pt.y">
+12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace std;int main()&amp;#123;    Point pt;    pt.x = 3;    pt">
 <meta name="twitter:image" content="https://miao.su/images/2017/03/09/buildtargetsd8b73.png">
 
     
@@ -83,7 +56,7 @@ int main()
 				<h1 class="site-name"><a href="/" title="eleflea&#39;s Blog">eleflea&#39;s Blog</a></h1>
 				<h2 class="blog-motto">记载某一条世界线</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -101,7 +74,7 @@ int main()
  					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:eleflea.github.io">
 					</form>
 					
@@ -124,14 +97,14 @@ int main()
 		<a href="/about" title="eleflea" target="_blank" itemprop="author">eleflea</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-09T01:09:05.000Z" itemprop="datePublished"> 發表於 2017-03-09</time>
+    <time datetime="2017-03-09T01:09:05.000Z" itemprop="datePublished"> Published 2017-03-09</time>
     
   </p>
 </header>
 	<div class="article-content">
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
+			<strong class="toc-title">Contents</strong>
 		
 			
 		
@@ -139,37 +112,9 @@ int main()
 		
 		<p>昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：</p>
 <p>此工程在VS下可以运行，但在code::blocks下却一直报错。</p>
-<pre><code class="c++">#include &lt;iostream&gt;
-#include &quot;pt.h&quot;
-
-using namespace std;
-
-int main()
-{
-    Point pt;
-    pt.x = 3;
-    pt.y = 5;
-    pt.output();
-    return 0;
-}
-</code></pre>
-<pre><code class="c++">class Point {
-public:
-    int x;
-    int y;
-    int output();
-};
-</code></pre>
-<pre><code class="c++">#include &lt;iostream&gt;
-#include &quot;pt.h&quot;
-
-using namespace std;
-
-int Point::output() {
-    cout &lt;&lt; x &lt;&lt; &quot; &quot; &lt;&lt; y &lt;&lt; endl;
-    return 0;
-}
-</code></pre>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pt.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Point pt;</div><div class="line">    pt.x = <span class="number">3</span>;</div><div class="line">    pt.y = <span class="number">5</span>;</div><div class="line">    pt.output();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Point &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">int</span> y;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">output</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pt.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> Point::output() &#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">" "</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如上，问题就是出在<code>Point::output</code>这个函数上，经过我查找各种资料，我终于明白了是link的时候pt.cpp没有被包含在内，导致<code>main</code>函数找不到<code>Point::output</code>函数的定义，因此报错。</p>
 <p>我又在网上查来查去，最后终于找到解决方法：</p>
 <p><img src="https://miao.su/images/2017/03/09/buildtargetsd8b73.png" alt="build targets"></p>
@@ -230,34 +175,24 @@ int Point::output() {
 
 
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
+  <strong class="toc-title">Contents</strong>
  
  
  
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
-
-  
-<div class="github-card">
-<p class="asidetitle">Github 名片</p>
-<div class="github-card" data-github="https://github.com/eleflea" data-width="220" data-height="119" data-theme="medium">
-<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
-</div>
-  </div>
-
-
 
   
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
 			
@@ -297,23 +232,19 @@ int Point::output() {
 			
 		
 			
-				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+				<li><a href="/tags/错误/" title="错误">错误<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/code-blocks/" title="code::blocks">code::blocks<sup>1</sup></a></li>
+				<li><a href="/tags/东北大学/" title="东北大学">东北大学<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/undefined-reference/" title="undefined reference">undefined reference<sup>1</sup></a></li>
+				<li><a href="/tags/大物/" title="大物">大物<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/动漫/" title="动漫">动漫<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/错误/" title="错误">错误<sup>1</sup></a></li>
 			
 		
 			
@@ -325,11 +256,15 @@ int Point::output() {
 			
 		
 			
-				<li><a href="/tags/东北大学/" title="东北大学">东北大学<sup>1</sup></a></li>
+				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/大物/" title="大物">大物<sup>1</sup></a></li>
+				<li><a href="/tags/code-blocks/" title="code::blocks">code::blocks<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/undefined-reference/" title="undefined reference">undefined reference<sup>1</sup></a></li>
 			
 		
 			
@@ -345,7 +280,7 @@ int Point::output() {
 
 
   <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
+  <p class="asidetitle">Links</p>
     <ul>
         
           <li>
@@ -364,11 +299,11 @@ int Point::output() {
 </div>
 
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
 </div>
 
   <div class="weiboshow">
-  <p class="asidetitle">新浪微博</p>
+  <p class="asidetitle">Weibo</p>
     <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
 </div>
 
@@ -601,7 +536,7 @@ $(document).ready(function(){
 <!-- Totop Begin -->
 
 	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
 	</div>
 	<script src="/js/totop.js"></script>
 
