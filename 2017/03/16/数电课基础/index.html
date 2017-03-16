@@ -4,26 +4,230 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>排序算法的极限 | eleflea&#39;s Blog</title>
+    <title>数电课基础 | eleflea&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="eleflea">
     
 
     
-    <meta name="description" content="首先说排序算法时间复杂度的极限是$O(n)$。这点可以从信息论的角度考虑：你要排序一个数组，你至少要知道它们每个都是什么，所以必然要遍历数组。这就使得算法的时间复杂度至少为$O(n)$。因为这是必要的信息。
-同理可以考虑比较排序的方法：每次比较我们得到的信息是$3$种（大于、小于、等于），但由于等于这种信息不会对排序造成影响（事实上，它可以和大于或者小于放在一起）。这样我们就得到$2$种可能性。$">
+    <meta name="description" content="今天我上了第一节数电课，是刚刚跳槽来的李晶皎老师给我们讲的。讲得我很一颗赛艇~
+我要记一下~
+
+
+
+十进制
+二进制
+十六进制
+
+
+
+
+0
+0000
+0
+
+
+1
+0001
+1
+
+
+2
+0010
+2
+
+
+3
+0011
+3
+
+
+4
+0100
+4
+
+
+5
+0101
+5
+
+
+6
+0110
+6
+
+
+7
+0111
+7
+
+
+8
+1000
+8
+
+
+9
+1001
+9
+
+
+10
+1010
+A
+
+
+11
+1011
+B">
 <meta property="og:type" content="article">
-<meta property="og:title" content="排序算法的极限">
-<meta property="og:url" content="https://eleflea.github.io/2017/03/05/排序算法的极限/index.html">
+<meta property="og:title" content="数电课基础">
+<meta property="og:url" content="https://eleflea.github.io/2017/03/16/数电课基础/index.html">
 <meta property="og:site_name" content="eleflea's Blog">
-<meta property="og:description" content="首先说排序算法时间复杂度的极限是$O(n)$。这点可以从信息论的角度考虑：你要排序一个数组，你至少要知道它们每个都是什么，所以必然要遍历数组。这就使得算法的时间复杂度至少为$O(n)$。因为这是必要的信息。
-同理可以考虑比较排序的方法：每次比较我们得到的信息是$3$种（大于、小于、等于），但由于等于这种信息不会对排序造成影响（事实上，它可以和大于或者小于放在一起）。这样我们就得到$2$种可能性。$">
-<meta property="og:updated_time" content="2017-03-13T06:51:51.623Z">
+<meta property="og:description" content="今天我上了第一节数电课，是刚刚跳槽来的李晶皎老师给我们讲的。讲得我很一颗赛艇~
+我要记一下~
+
+
+
+十进制
+二进制
+十六进制
+
+
+
+
+0
+0000
+0
+
+
+1
+0001
+1
+
+
+2
+0010
+2
+
+
+3
+0011
+3
+
+
+4
+0100
+4
+
+
+5
+0101
+5
+
+
+6
+0110
+6
+
+
+7
+0111
+7
+
+
+8
+1000
+8
+
+
+9
+1001
+9
+
+
+10
+1010
+A
+
+
+11
+1011
+B">
+<meta property="og:updated_time" content="2017-03-16T14:27:44.073Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="排序算法的极限">
-<meta name="twitter:description" content="首先说排序算法时间复杂度的极限是$O(n)$。这点可以从信息论的角度考虑：你要排序一个数组，你至少要知道它们每个都是什么，所以必然要遍历数组。这就使得算法的时间复杂度至少为$O(n)$。因为这是必要的信息。
-同理可以考虑比较排序的方法：每次比较我们得到的信息是$3$种（大于、小于、等于），但由于等于这种信息不会对排序造成影响（事实上，它可以和大于或者小于放在一起）。这样我们就得到$2$种可能性。$">
+<meta name="twitter:title" content="数电课基础">
+<meta name="twitter:description" content="今天我上了第一节数电课，是刚刚跳槽来的李晶皎老师给我们讲的。讲得我很一颗赛艇~
+我要记一下~
+
+
+
+十进制
+二进制
+十六进制
+
+
+
+
+0
+0000
+0
+
+
+1
+0001
+1
+
+
+2
+0010
+2
+
+
+3
+0011
+3
+
+
+4
+0100
+4
+
+
+5
+0101
+5
+
+
+6
+0110
+6
+
+
+7
+0111
+7
+
+
+8
+1000
+8
+
+
+9
+1001
+9
+
+
+10
+1010
+A
+
+
+11
+1011
+B">
 
     
     <link rel="alternative" href="/atom.xml" title="eleflea&#39;s Blog" type="application/atom+xml">
@@ -85,14 +289,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/05/排序算法的极限/" title="排序算法的极限" itemprop="url">排序算法的极限</a>
+      <a href="/2017/03/16/数电课基础/" title="数电课基础" itemprop="url">数电课基础</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="eleflea" target="_blank" itemprop="author">eleflea</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-05T09:18:02.000Z" itemprop="datePublished"> Published 2017-03-05</time>
+    <time datetime="2017-03-16T14:20:30.000Z" itemprop="datePublished"> Published 2017-03-16</time>
     
   </p>
 </header>
@@ -105,9 +309,100 @@
 		
 		</div>
 		
-		<p>首先说排序算法时间复杂度的极限是$O(n)$。这点可以从信息论的角度考虑：你要排序一个数组，你至少要知道它们每个都是什么，所以必然要遍历数组。这就使得算法的时间复杂度至少为$O(n)$。因为这是必要的信息。</p>
-<p>同理可以考虑比较排序的方法：每次比较我们得到的信息是$3$种（大于、小于、等于），但由于等于这种信息不会对排序造成影响（事实上，它可以和大于或者小于放在一起）。这样我们就得到$2$种可能性。$n$个元素所有可能性的复杂度是$O(n!)$。$n$次比较的复杂度是$O(2^n)$。二者相除，通过一些数学可以知道，比较次数复杂度是$O(n\lg{n})$。</p>
-<p>用这种方法，我们也可以知道，为什么乱序的数组，找到一个元素时间复杂度是$O(n)$，而排好序的数组只需要$O(\lg{n})$次。</p>
+		<p>今天我上了第一节数电课，是刚刚跳槽来的李晶皎老师给我们讲的。讲得我很一颗赛艇~</p>
+<p>我要记一下~</p>
+<table>
+<thead>
+<tr>
+<th>十进制</th>
+<th>二进制</th>
+<th>十六进制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0000</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0001</td>
+<td>1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>0010</td>
+<td>2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0011</td>
+<td>3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0100</td>
+<td>4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>0101</td>
+<td>5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>0110</td>
+<td>6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0111</td>
+<td>7</td>
+</tr>
+<tr>
+<td>8</td>
+<td>1000</td>
+<td>8</td>
+</tr>
+<tr>
+<td>9</td>
+<td>1001</td>
+<td>9</td>
+</tr>
+<tr>
+<td>10</td>
+<td>1010</td>
+<td>A</td>
+</tr>
+<tr>
+<td>11</td>
+<td>1011</td>
+<td>B</td>
+</tr>
+<tr>
+<td>12</td>
+<td>1100</td>
+<td>C</td>
+</tr>
+<tr>
+<td>13</td>
+<td>1101</td>
+<td>D</td>
+</tr>
+<tr>
+<td>14</td>
+<td>1110</td>
+<td>E</td>
+</tr>
+<tr>
+<td>15</td>
+<td>1111</td>
+<td>F</td>
+</tr>
+</tbody>
+</table>
+<p>老师说要记住！多看几遍</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -116,7 +411,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/随笔/">随笔</a><a href="/tags/编程/">编程</a><a href="/tags/信息论/">信息论</a><a href="/tags/复杂度/">复杂度</a><a href="/tags/排序/">排序</a><a href="/tags/算法/">算法</a>
+  <span></span> <a href="/tags/数电/">数电</a><a href="/tags/进制/">进制</a><a href="/tags/随笔/">随笔</a>
   </div>
 
 </div>
@@ -125,7 +420,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://eleflea.github.io/2017/03/05/排序算法的极限/" data-title="排序算法的极限 | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://eleflea.github.io/2017/03/16/数电课基础/" data-title="数电课基础 | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -138,19 +433,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/05/时间复杂度里奇怪的“lg”/" title="时间复杂度里奇怪的“lg”">
-  <strong>上一篇：</strong><br/>
-  <span>
-  时间复杂度里奇怪的“lg”</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/05/为什么喜欢《罗小黑战记》/"  title="为什么喜欢《罗小黑战记》">
+<a href="/2017/03/13/迟到的个人简介/"  title="迟到的个人简介">
  <strong>下一篇：</strong><br/> 
- <span>为什么喜欢《罗小黑战记》
+ <span>迟到的个人简介
 </span>
 </a>
 </div>
@@ -159,7 +446,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/05/排序算法的极限/" data-title="排序算法的极限" data-url="https://eleflea.github.io/2017/03/05/排序算法的极限/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/16/数电课基础/" data-title="数电课基础" data-url="https://eleflea.github.io/2017/03/16/数电课基础/"></div>
 </section>
 
 
