@@ -4,134 +4,34 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>大物实验 | eleflea&#39;s Blog</title>
+    <title>python requests 保持会话注意事项 | eleflea&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="eleflea">
     
 
     
-    <meta name="description" content="QQ电脑给手机发图出了点问题，无奈先在此记录吧~
-我的实验
+    <meta name="description" content="最近因为需要再写一个爬取支付宝账单的爬虫，里面的cookie过期时间是会话结束，所以要维持会话。在网上看了很多资料后终于实现了。下面再结合我自己的经验，谈一谈其中的注意事项。
+header要设置好首先，先将最基本的header做好，可以通过浏览器的网络分析看到这些信息。
 
-
-序号
-实验项目
-地点
-时间
-开始时间
-
-
-
-
-1
-单缝衍射的实验研究
-建筑馆117
-第3周-星期1-7-8节
-16:00
-
-
-2
-晶体电光调制及其应用
-建筑馆307
-第4周-星期1-7-8节
-16:00
-
-
-3
-CCD性能研究
-建筑馆301
-第5周-星期5-3-4节
-10:10
-
-
-4
-非线性电阻测量
-建筑馆304
-第6周-星期4-1">
+12345header = &amp;#123;&apos;User-Agent&apos;      : &apos;Mozilla/5.0 (Macintosh">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大物实验">
-<meta property="og:url" content="https://eleflea.github.io/2017/03/10/大物实验/index.html">
+<meta property="og:title" content="python requests 保持会话注意事项">
+<meta property="og:url" content="https://eleflea.github.io/2017/03/29/python-requests-保持会话注意事项/index.html">
 <meta property="og:site_name" content="eleflea's Blog">
-<meta property="og:description" content="QQ电脑给手机发图出了点问题，无奈先在此记录吧~
-我的实验
+<meta property="og:description" content="最近因为需要再写一个爬取支付宝账单的爬虫，里面的cookie过期时间是会话结束，所以要维持会话。在网上看了很多资料后终于实现了。下面再结合我自己的经验，谈一谈其中的注意事项。
+header要设置好首先，先将最基本的header做好，可以通过浏览器的网络分析看到这些信息。
 
-
-序号
-实验项目
-地点
-时间
-开始时间
-
-
-
-
-1
-单缝衍射的实验研究
-建筑馆117
-第3周-星期1-7-8节
-16:00
-
-
-2
-晶体电光调制及其应用
-建筑馆307
-第4周-星期1-7-8节
-16:00
-
-
-3
-CCD性能研究
-建筑馆301
-第5周-星期5-3-4节
-10:10
-
-
-4
-非线性电阻测量
-建筑馆304
-第6周-星期4-1">
-<meta property="og:updated_time" content="2017-03-13T04:56:49.534Z">
+12345header = &amp;#123;&apos;User-Agent&apos;      : &apos;Mozilla/5.0 (Macintosh">
+<meta property="og:image" content="https://miao.su/images/2017/03/29/networkd0661.png">
+<meta property="og:updated_time" content="2017-03-29T12:42:50.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="大物实验">
-<meta name="twitter:description" content="QQ电脑给手机发图出了点问题，无奈先在此记录吧~
-我的实验
+<meta name="twitter:title" content="python requests 保持会话注意事项">
+<meta name="twitter:description" content="最近因为需要再写一个爬取支付宝账单的爬虫，里面的cookie过期时间是会话结束，所以要维持会话。在网上看了很多资料后终于实现了。下面再结合我自己的经验，谈一谈其中的注意事项。
+header要设置好首先，先将最基本的header做好，可以通过浏览器的网络分析看到这些信息。
 
-
-序号
-实验项目
-地点
-时间
-开始时间
-
-
-
-
-1
-单缝衍射的实验研究
-建筑馆117
-第3周-星期1-7-8节
-16:00
-
-
-2
-晶体电光调制及其应用
-建筑馆307
-第4周-星期1-7-8节
-16:00
-
-
-3
-CCD性能研究
-建筑馆301
-第5周-星期5-3-4节
-10:10
-
-
-4
-非线性电阻测量
-建筑馆304
-第6周-星期4-1">
+12345header = &amp;#123;&apos;User-Agent&apos;      : &apos;Mozilla/5.0 (Macintosh">
+<meta name="twitter:image" content="https://miao.su/images/2017/03/29/networkd0661.png">
 
     
     <link rel="alternative" href="/atom.xml" title="eleflea&#39;s Blog" type="application/atom+xml">
@@ -193,14 +93,14 @@ CCD性能研究
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/10/大物实验/" title="大物实验" itemprop="url">大物实验</a>
+      <a href="/2017/03/29/python-requests-保持会话注意事项/" title="python requests 保持会话注意事项" itemprop="url">python requests 保持会话注意事项</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="eleflea" target="_blank" itemprop="author">eleflea</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-10T03:08:45.000Z" itemprop="datePublished"> 发表于 2017-03-10</time>
+    <time datetime="2017-03-29T12:11:31.000Z" itemprop="datePublished"> 发表于 2017-03-29</time>
     
   </p>
 </header>
@@ -209,154 +109,22 @@ CCD性能研究
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#我的实验"><span class="toc-number">1.</span> <span class="toc-text">我的实验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#南湖校区实验地点"><span class="toc-number">2.</span> <span class="toc-text">南湖校区实验地点</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#header要设置好"><span class="toc-number">1.</span> <span class="toc-text">header要设置好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用session"><span class="toc-number">2.</span> <span class="toc-text">使用session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#记得更新cookie"><span class="toc-number">3.</span> <span class="toc-text">记得更新cookie</span></a></li></ol>
 		
 		</div>
 		
-		<p>QQ电脑给手机发图出了点问题，无奈先在此记录吧~</p>
-<h3 id="我的实验"><a href="#我的实验" class="headerlink" title="我的实验"></a>我的实验</h3><table>
-<thead>
-<tr>
-<th>序号</th>
-<th>实验项目</th>
-<th>地点</th>
-<th>时间</th>
-<th>开始时间</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>单缝衍射的实验研究</td>
-<td>建筑馆117</td>
-<td>第3周-星期1-7-8节</td>
-<td>16:00</td>
-</tr>
-<tr>
-<td>2</td>
-<td>晶体电光调制及其应用</td>
-<td>建筑馆307</td>
-<td>第4周-星期1-7-8节</td>
-<td>16:00</td>
-</tr>
-<tr>
-<td>3</td>
-<td>CCD性能研究</td>
-<td>建筑馆301</td>
-<td>第5周-星期5-3-4节</td>
-<td>10:10</td>
-</tr>
-<tr>
-<td>4</td>
-<td>非线性电阻测量</td>
-<td>建筑馆304</td>
-<td>第6周-星期4-1-2节</td>
-<td>07:30</td>
-</tr>
-<tr>
-<td>5</td>
-<td>全息照相</td>
-<td>建筑馆120</td>
-<td>第7周-星期5-3-4节</td>
-<td>10:10</td>
-</tr>
-<tr>
-<td>6</td>
-<td>RLC暂态电路特性研究</td>
-<td>建筑馆310</td>
-<td>第8周-星期1-7-8节</td>
-<td>16:00</td>
-</tr>
-<tr>
-<td>7</td>
-<td>迈克尔孙干涉仪</td>
-<td>建筑馆125</td>
-<td>第9周-星期5-1-2节</td>
-<td>07:30</td>
-</tr>
-<tr>
-<td>8</td>
-<td>干涉法测量固体的线胀系数</td>
-<td>建筑馆127</td>
-<td>第12周-星期5-3-4节</td>
-<td>10:10</td>
-</tr>
-</tbody>
-</table>
-<h3 id="南湖校区实验地点"><a href="#南湖校区实验地点" class="headerlink" title="南湖校区实验地点"></a>南湖校区实验地点</h3><table>
-<thead>
-<tr>
-<th>实验项目</th>
-<th>教室</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>3.1动力学法测金属材料的杨氏模量</td>
-<td>建筑馆126</td>
-</tr>
-<tr>
-<td>3.3声速测量</td>
-<td>建筑馆303</td>
-</tr>
-<tr>
-<td>3.4用冲击电流计测量磁场分布</td>
-<td>建筑馆122</td>
-</tr>
-<tr>
-<td>3.5霍尔效应</td>
-<td>建筑馆306</td>
-</tr>
-<tr>
-<td>3.6 RLC暂态电路特性研究</td>
-<td>建筑馆310</td>
-</tr>
-<tr>
-<td>3.7铁磁物质动态磁滞回线的测量</td>
-<td>建筑馆308</td>
-</tr>
-<tr>
-<td>3.8用光栅测量光波的波长</td>
-<td>建筑馆118</td>
-</tr>
-<tr>
-<td>3.9单缝衍射的实验研究</td>
-<td>建筑馆117</td>
-</tr>
-<tr>
-<td>3.10迈克尔逊干涉仪</td>
-<td>建筑馆125</td>
-</tr>
-<tr>
-<td>3.11干涉法测量固体的线胀系数</td>
-<td>建筑馆127</td>
-</tr>
-<tr>
-<td>3.14电涡流位移传感器位移特性的研究  &amp;3.19光纤传感</td>
-<td>建筑馆311</td>
-</tr>
-<tr>
-<td>3.16晶体电光调制及其应用</td>
-<td>建筑馆307</td>
-</tr>
-<tr>
-<td>3.18全息照相</td>
-<td>建筑馆120</td>
-</tr>
-<tr>
-<td>3.26 CCD综合实验</td>
-<td>建筑馆301</td>
-</tr>
-<tr>
-<td>4.3非线性电阻测量</td>
-<td>建筑馆304</td>
-</tr>
-<tr>
-<td>4.7用读数显微镜测量玻璃折射率</td>
-<td>建筑馆119</td>
-</tr>
-</tbody>
-</table>
+		<p>最近因为需要再写一个爬取支付宝账单的爬虫，里面的cookie过期时间是会话结束，所以要维持会话。在网上看了很多资料后终于实现了。下面再结合我自己的经验，谈一谈其中的注意事项。</p>
+<h3 id="header要设置好"><a href="#header要设置好" class="headerlink" title="header要设置好"></a>header要设置好</h3><p>首先，先将最基本的header做好，可以通过浏览器的网络分析看到这些信息。</p>
+<p><img src="https://miao.su/images/2017/03/29/networkd0661.png" alt="Chrome&#39;s network"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">header = &#123;<span class="string">'User-Agent'</span>      : <span class="string">'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/36.0.1985.125 Safari/537.36'</span>,</div><div class="line">          <span class="string">'X-Requested-With'</span>: <span class="string">'XMLHttpRequest'</span>,</div><div class="line">          <span class="string">'Host'</span>            : <span class="string">'my.alipay.com'</span>,</div><div class="line">          <span class="string">'Connection'</span>      : <span class="string">'keep-alive'</span>,</div><div class="line">          <span class="string">'Cookie'</span>          : <span class="string">'foo=blabla; time=142555'</span>&#125;</div></pre></td></tr></table></figure>
+<p>像这样一个请求头，可以一定程度上伪装成浏览器。</p>
+<h3 id="使用session"><a href="#使用session" class="headerlink" title="使用session"></a>使用session</h3><p>requests 模块下的session类可以很方便的自动处理很多东西（cookie, session 啥的），而且在维持会话也是必不可少的。使用方法也很简单：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">s = requests.session()</div><div class="line">s.headers.update(header)</div></pre></td></tr></table></figure>
+<p>另外还可以设置session类的cookie，具体的可以看官方文档。</p>
+<h3 id="记得更新cookie"><a href="#记得更新cookie" class="headerlink" title="记得更新cookie"></a>记得更新cookie</h3><p>session有个奇怪的特性，它会优先使用用户设置的cookie覆盖来自响应的cookie，所以我们要手动更新下。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">req = s.get(<span class="string">'https://my.alipay.com/portal/i.htm'</span>)</div><div class="line"><span class="keyword">if</span> req.cookies.get_dict():</div><div class="line">    s.cookies.update(req.cookies)</div></pre></td></tr></table></figure>
+<p>所以总体的步骤就是：实例化一个session，设置header和cookie，再更新cookie。循环爬取时，注意不要再用一开始设置的cookie覆盖更新完的cookie了。</p>
+<p>这样每隔一段时间get一下，就可以维持回话了。另外，具体定情况具体分析。每次做爬虫，我都会觉得很玄学，因为有太多细节需要注意。实在不行，就只能用selenium啥的抵挡一阵了。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -365,7 +133,7 @@ CCD性能研究
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/东北大学/">东北大学</a><a href="/tags/大物/">大物</a><a href="/tags/实验/">实验</a><a href="/tags/物理/">物理</a>
+  <span></span> <a href="/tags/python/">python</a><a href="/tags/requests/">requests</a><a href="/tags/爬虫/">爬虫</a><a href="/tags/编程/">编程</a>
   </div>
 
 </div>
@@ -374,7 +142,7 @@ CCD性能研究
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://eleflea.github.io/2017/03/10/大物实验/" data-title="大物实验 | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://eleflea.github.io/2017/03/29/python-requests-保持会话注意事项/" data-title="python requests 保持会话注意事项 | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -387,19 +155,11 @@ CCD性能研究
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/12/绝缘体、半导体、导体的区别/" title="绝缘体、半导体、导体的区别">
-  <strong>上一篇：</strong><br/>
-  <span>
-  绝缘体、半导体、导体的区别</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/"  title="因为头文件与源文件分离的C++ 错误：“undefined reference”">
+<a href="/2017/03/20/天坑：ORM零食商城/"  title="天坑：ORM零食商城">
  <strong>下一篇：</strong><br/> 
- <span>因为头文件与源文件分离的C++ 错误：“undefined reference”
+ <span>天坑：ORM零食商城
 </span>
 </a>
 </div>
@@ -408,7 +168,7 @@ CCD性能研究
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/10/大物实验/" data-title="大物实验" data-url="https://eleflea.github.io/2017/03/10/大物实验/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/29/python-requests-保持会话注意事项/" data-title="python requests 保持会话注意事项" data-url="https://eleflea.github.io/2017/03/29/python-requests-保持会话注意事项/"></div>
 </section>
 
 
@@ -418,7 +178,7 @@ CCD性能研究
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#我的实验"><span class="toc-number">1.</span> <span class="toc-text">我的实验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#南湖校区实验地点"><span class="toc-number">2.</span> <span class="toc-text">南湖校区实验地点</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#header要设置好"><span class="toc-number">1.</span> <span class="toc-text">header要设置好</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用session"><span class="toc-number">2.</span> <span class="toc-text">使用session</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#记得更新cookie"><span class="toc-number">3.</span> <span class="toc-text">记得更新cookie</span></a></li></ol>
  
   </div>
 
