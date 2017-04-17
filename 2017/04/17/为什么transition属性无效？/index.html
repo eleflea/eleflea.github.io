@@ -4,26 +4,26 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>为什么喜欢《罗小黑战记》 | eleflea&#39;s Blog</title>
+    <title>为什么transition属性无效？ | eleflea&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="eleflea">
     
 
     
-    <meta name="description" content="《罗小黑战记》作为一个有生之年系列动画，从我一开始发现它（大概是14年？）到现在，一直在龟速更新。后来我了解到，这部“癫疯之作”一开始只有MTJJ一人制作，直到后来一点点扩大团队，有把1、2集重做，再到后来越来越多的人加入，期间画风从未变过，这是一件很难的事。更重要的，是它的“匠心”。
-我所谓的匠心，是一种追求自我的精神，可以说是独树一帜。罗小黑的风格和我所见过的动漫风格都不同，虽然看起来像简笔画">
+    <meta name="description" content="适当的动画效果可以使得我们的网页富有活力、充满新意。通常我们实现动画效果主要通过 css3 和 transition。其中 transition 通常是效率最高的。然而，最近我就在 transition 上遇到了一个奇怪的问题。
+123456789101112131415// draw.jsvar jctx = $(&quot;&amp;lt;canvas height=&apos;50px&apos; width=&apos;50px&apos;&amp;gt">
 <meta property="og:type" content="article">
-<meta property="og:title" content="为什么喜欢《罗小黑战记》">
-<meta property="og:url" content="https://eleflea.github.io/2017/03/05/为什么喜欢《罗小黑战记》/index.html">
+<meta property="og:title" content="为什么transition属性无效？">
+<meta property="og:url" content="https://eleflea.github.io/2017/04/17/为什么transition属性无效？/index.html">
 <meta property="og:site_name" content="eleflea's Blog">
-<meta property="og:description" content="《罗小黑战记》作为一个有生之年系列动画，从我一开始发现它（大概是14年？）到现在，一直在龟速更新。后来我了解到，这部“癫疯之作”一开始只有MTJJ一人制作，直到后来一点点扩大团队，有把1、2集重做，再到后来越来越多的人加入，期间画风从未变过，这是一件很难的事。更重要的，是它的“匠心”。
-我所谓的匠心，是一种追求自我的精神，可以说是独树一帜。罗小黑的风格和我所见过的动漫风格都不同，虽然看起来像简笔画">
-<meta property="og:updated_time" content="2017-03-13T04:49:33.706Z">
+<meta property="og:description" content="适当的动画效果可以使得我们的网页富有活力、充满新意。通常我们实现动画效果主要通过 css3 和 transition。其中 transition 通常是效率最高的。然而，最近我就在 transition 上遇到了一个奇怪的问题。
+123456789101112131415// draw.jsvar jctx = $(&quot;&amp;lt;canvas height=&apos;50px&apos; width=&apos;50px&apos;&amp;gt">
+<meta property="og:updated_time" content="2017-04-17T14:54:27.068Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="为什么喜欢《罗小黑战记》">
-<meta name="twitter:description" content="《罗小黑战记》作为一个有生之年系列动画，从我一开始发现它（大概是14年？）到现在，一直在龟速更新。后来我了解到，这部“癫疯之作”一开始只有MTJJ一人制作，直到后来一点点扩大团队，有把1、2集重做，再到后来越来越多的人加入，期间画风从未变过，这是一件很难的事。更重要的，是它的“匠心”。
-我所谓的匠心，是一种追求自我的精神，可以说是独树一帜。罗小黑的风格和我所见过的动漫风格都不同，虽然看起来像简笔画">
+<meta name="twitter:title" content="为什么transition属性无效？">
+<meta name="twitter:description" content="适当的动画效果可以使得我们的网页富有活力、充满新意。通常我们实现动画效果主要通过 css3 和 transition。其中 transition 通常是效率最高的。然而，最近我就在 transition 上遇到了一个奇怪的问题。
+123456789101112131415// draw.jsvar jctx = $(&quot;&amp;lt;canvas height=&apos;50px&apos; width=&apos;50px&apos;&amp;gt">
 
     
     <link rel="alternative" href="/atom.xml" title="eleflea&#39;s Blog" type="application/atom+xml">
@@ -85,14 +85,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/05/为什么喜欢《罗小黑战记》/" title="为什么喜欢《罗小黑战记》" itemprop="url">为什么喜欢《罗小黑战记》</a>
+      <a href="/2017/04/17/为什么transition属性无效？/" title="为什么transition属性无效？" itemprop="url">为什么transition属性无效？</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="eleflea" target="_blank" itemprop="author">eleflea</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-05T08:55:27.000Z" itemprop="datePublished"> Published 2017-03-05</time>
+    <time datetime="2017-04-17T14:19:01.000Z" itemprop="datePublished"> Published 2017-04-17</time>
     
   </p>
 </header>
@@ -105,10 +105,12 @@
 		
 		</div>
 		
-		<p>《<a href="http://www.bilibili.com/sp/%E7%BD%97%E5%B0%8F%E9%BB%91%E6%88%98%E8%AE%B0" target="_blank" rel="external">罗小黑战记</a>》作为一个有生之年系列动画，从我一开始发现它（大概是14年？）到现在，一直在龟速更新。后来我了解到，这部“癫疯之作”一开始只有<a href="http://weibo.com/mtjj" target="_blank" rel="external">MTJJ</a>一人制作，直到后来一点点扩大团队，有把1、2集重做，再到后来越来越多的人加入，期间画风从未变过，这是一件很难的事。更重要的，是它的“匠心”。</p>
-<p>我所谓的匠心，是一种追求自我的精神，可以说是独树一帜。罗小黑的风格和我所见过的动漫风格都不同，虽然看起来像简笔画，但有有一种别致的中国风，就像那种写意的意味。另外，它的战斗也很有特色，不会使用电影里的慢动作，而是很快的一闪而过，使得大家都不得不暂停来看。作者说过他不喜欢拖沓，也因此每集几分钟的时间满满都是剧情，不会以任何形式拖剧情，就连制作人名单也很简短。还有其中的细节，真的是太多，经常出现的关于催更和捏他的细节，也是满满的心意。再者，动画也是丝般流畅（不确定到底有多少帧），分镜等也是上乘。</p>
-<p>每次更新我都至少看两遍，而且时时复习（不复习就忘了= =）。总之，衷心希望他们能继续保持这样的初心，不管有多慢，我都会等下去~</p>
-<p>P.S. 我还买了个罗小黑的杯子，也算支持作者了~</p>
+		<p>适当的动画效果可以使得我们的网页富有活力、充满新意。通常我们实现动画效果主要通过 css3 和 transition。其中 transition 通常是效率最高的。然而，最近我就在 transition 上遇到了一个奇怪的问题。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// draw.js</span></div><div class="line"><span class="keyword">var</span> jctx = $(<span class="string">"&lt;canvas height='50px' width='50px'&gt;&lt;/canvas&gt;"</span>).css(&#123;</div><div class="line">    <span class="string">"position"</span>: <span class="string">"absolute"</span>,</div><div class="line">    <span class="string">"top"</span>: <span class="number">50</span>,</div><div class="line">    <span class="string">"left"</span>: <span class="number">50</span>,</div><div class="line">    <span class="string">"transition"</span>: <span class="string">"top 1s"</span></div><div class="line">&#125;);</div><div class="line">$(<span class="string">"#view"</span>).append(jctx);</div><div class="line"><span class="keyword">var</span> ctx = jctx[<span class="number">0</span>].getContext(<span class="string">"2d"</span>);</div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">25</span>, <span class="number">25</span>, <span class="number">25</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</div><div class="line">ctx.fill();</div><div class="line">jctx.css(&#123;</div><div class="line">    <span class="string">"top"</span>: <span class="number">100</span></div><div class="line">&#125;, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- draw.html --&gt;</span></div><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"ie=edge"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>CANVAS DRAW<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"view"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./draw.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>上面的代码是出现一个圆向下移动的动画。然而它现在并没有动，看起来 transition 失效了。原因是因为连续的更改 css 会被视为一次 css 调整，故而 transition 不会有效果。因此我们要用 setTimeout 函数来“打断”它们：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// draw.js</span></div><div class="line"><span class="keyword">var</span> jctx = $(<span class="string">"&lt;canvas height='50px' width='50px'&gt;&lt;/canvas&gt;"</span>).css(&#123;</div><div class="line">    <span class="string">"position"</span>: <span class="string">"absolute"</span>,</div><div class="line">    <span class="string">"top"</span>: <span class="number">50</span>,</div><div class="line">    <span class="string">"left"</span>: <span class="number">50</span>,</div><div class="line">    <span class="string">"transition"</span>: <span class="string">"top 1s"</span></div><div class="line">&#125;);</div><div class="line">$(<span class="string">"#view"</span>).append(jctx);</div><div class="line"><span class="keyword">var</span> ctx = jctx[<span class="number">0</span>].getContext(<span class="string">"2d"</span>);</div><div class="line">ctx.beginPath();</div><div class="line">ctx.arc(<span class="number">25</span>, <span class="number">25</span>, <span class="number">25</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</div><div class="line">ctx.fill();</div><div class="line">setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">    jctx.css(&#123;</div><div class="line">        <span class="string">"top"</span>: <span class="number">100</span></div><div class="line">    &#125;);</div><div class="line">&#125;, <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<p>这样，虽然实际上并没有延迟，transition 生效了。这样，我们可以不断地通过这种方式，让它一步一步做出各种动画效果。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -117,7 +119,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/MTJJ/">MTJJ</a><a href="/tags/动漫/">动漫</a><a href="/tags/罗小黑/">罗小黑</a><a href="/tags/罗小黑战记/">罗小黑战记</a><a href="/tags/随笔/">随笔</a>
+  <span></span> <a href="/tags/编程/">编程</a><a href="/tags/transition/">transition</a><a href="/tags/setTimeout/">setTimeout</a><a href="/tags/html/">html</a><a href="/tags/javascript/">javascript</a><a href="/tags/css/">css</a>
   </div>
 
 </div>
@@ -126,7 +128,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://eleflea.github.io/2017/03/05/为什么喜欢《罗小黑战记》/" data-title="为什么喜欢《罗小黑战记》 | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://eleflea.github.io/2017/04/17/为什么transition属性无效？/" data-title="为什么transition属性无效？ | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -139,20 +141,20 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/05/排序算法的极限/" title="排序算法的极限">
-  <strong>上一篇：</strong><br/>
-  <span>
-  排序算法的极限</span>
+
+<div class="next">
+<a href="/2017/04/09/Fluent-Python-读书笔记（一）：切片对象/"  title="Fluent Python 读书笔记（一）：切片对象">
+ <strong>下一篇：</strong><br/> 
+ <span>Fluent Python 读书笔记（一）：切片对象
+</span>
 </a>
 </div>
-
 
 </nav>
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/05/为什么喜欢《罗小黑战记》/" data-title="为什么喜欢《罗小黑战记》" data-url="https://eleflea.github.io/2017/03/05/为什么喜欢《罗小黑战记》/"></div>
+	<div class="ds-thread" data-thread-key="2017/04/17/为什么transition属性无效？/" data-title="为什么transition属性无效？" data-url="https://eleflea.github.io/2017/04/17/为什么transition属性无效？/"></div>
 </section>
 
 
