@@ -4,31 +4,40 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>因为头文件与源文件分离的C++ 错误：“undefined reference” | eleflea&#39;s Blog</title>
+    <title>金工实习：激光雕刻&amp;3D打印 | eleflea&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="eleflea">
     
 
     
-    <meta name="description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
-此工程在VS下可以运行，但在code::blocks下却一直报错。
-12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace std;int main()&amp;#123;    Point pt;    pt.x = 3;    pt">
+    <meta name="description" content="前几天的周二以及上一周的周二我们分组进行了 3D 打印和激光雕刻，个人觉得是最有意思的课了（目前的项目中）。主要是可以玩的课，不用出体力活了~
+3D 打印是上周做的。那个老师先是语速爆表得讲完了 NX 的用法，之后又演示了一下 3D 打印机的用法（我啥也没看到T_T），就我们在电脑里挑一个模型打印。我看了看，太复杂的一打开就卡得不要不要的，别的又没啥意思。踌躇了一阵，最终选择了小黄鸭。其实是小“白">
 <meta property="og:type" content="article">
-<meta property="og:title" content="因为头文件与源文件分离的C++ 错误：“undefined reference”">
-<meta property="og:url" content="https://eleflea.github.io/2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/index.html">
+<meta property="og:title" content="金工实习：激光雕刻&3D打印">
+<meta property="og:url" content="https://eleflea.github.io/2017/05/18/金工实习：激光雕刻-3D打印/index.html">
 <meta property="og:site_name" content="eleflea's Blog">
-<meta property="og:description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
-此工程在VS下可以运行，但在code::blocks下却一直报错。
-12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace std;int main()&amp;#123;    Point pt;    pt.x = 3;    pt">
-<meta property="og:image" content="https://miao.su/images/2017/03/09/buildtargetsd8b73.png">
-<meta property="og:updated_time" content="2017-03-13T04:55:05.666Z">
+<meta property="og:description" content="前几天的周二以及上一周的周二我们分组进行了 3D 打印和激光雕刻，个人觉得是最有意思的课了（目前的项目中）。主要是可以玩的课，不用出体力活了~
+3D 打印是上周做的。那个老师先是语速爆表得讲完了 NX 的用法，之后又演示了一下 3D 打印机的用法（我啥也没看到T_T），就我们在电脑里挑一个模型打印。我看了看，太复杂的一打开就卡得不要不要的，别的又没啥意思。踌躇了一阵，最终选择了小黄鸭。其实是小“白">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/yellow_duckad51c.md.jpg">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/pikaf136a.th.jpg">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/luo_cat368b0.th.jpg">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/huajib88d7.th.jpg">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/failure_pikad0bef.th.jpg">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/yibu4b45f.th.png">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/pika3baba.th.png">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/luo_cat_fishing27980.th.png">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/luo_cat_box0b5fc.th.png">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/luo_cat_3ffc34.th.png">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/kedaya2ac52.th.png">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/kabie9983.th.png">
+<meta property="og:image" content="https://miao.su/images/2017/05/18/huaji6ca78.th.png">
+<meta property="og:updated_time" content="2017-05-18T07:08:22.378Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="因为头文件与源文件分离的C++ 错误：“undefined reference”">
-<meta name="twitter:description" content="昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：
-此工程在VS下可以运行，但在code::blocks下却一直报错。
-12345678910111213#include &amp;lt;iostream&amp;gt;#include &quot;pt.h&quot;using namespace std;int main()&amp;#123;    Point pt;    pt.x = 3;    pt">
-<meta name="twitter:image" content="https://miao.su/images/2017/03/09/buildtargetsd8b73.png">
+<meta name="twitter:title" content="金工实习：激光雕刻&3D打印">
+<meta name="twitter:description" content="前几天的周二以及上一周的周二我们分组进行了 3D 打印和激光雕刻，个人觉得是最有意思的课了（目前的项目中）。主要是可以玩的课，不用出体力活了~
+3D 打印是上周做的。那个老师先是语速爆表得讲完了 NX 的用法，之后又演示了一下 3D 打印机的用法（我啥也没看到T_T），就我们在电脑里挑一个模型打印。我看了看，太复杂的一打开就卡得不要不要的，别的又没啥意思。踌躇了一阵，最终选择了小黄鸭。其实是小“白">
+<meta name="twitter:image" content="https://miao.su/images/2017/05/18/yellow_duckad51c.md.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="eleflea&#39;s Blog" type="application/atom+xml">
@@ -90,14 +99,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/" title="因为头文件与源文件分离的C++ 错误：“undefined reference”" itemprop="url">因为头文件与源文件分离的C++ 错误：“undefined reference”</a>
+      <a href="/2017/05/18/金工实习：激光雕刻-3D打印/" title="金工实习：激光雕刻&amp;3D打印" itemprop="url">金工实习：激光雕刻&amp;3D打印</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="eleflea" target="_blank" itemprop="author">eleflea</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-09T01:09:05.000Z" itemprop="datePublished"> 发表于 2017-03-09</time>
+    <time datetime="2017-05-18T06:12:01.000Z" itemprop="datePublished"> 发表于 2017-05-18</time>
     
   </p>
 </header>
@@ -110,15 +119,12 @@
 		
 		</div>
 		
-		<p>昨天上课老师让我们写一个简单的头文件与源文件分离的C++面向对象编程，源码如下：</p>
-<p>此工程在VS下可以运行，但在code::blocks下却一直报错。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pt.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></div><div class="line">&#123;</div><div class="line">    Point pt;</div><div class="line">    pt.x = <span class="number">3</span>;</div><div class="line">    pt.y = <span class="number">5</span>;</div><div class="line">    pt.output();</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">class</span> Point &#123;</div><div class="line"><span class="keyword">public</span>:</div><div class="line">    <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">int</span> y;</div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">output</span><span class="params">()</span></span>;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"pt.h"</span></span></div><div class="line"></div><div class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</div><div class="line"></div><div class="line"><span class="keyword">int</span> Point::output() &#123;</div><div class="line">    <span class="built_in">cout</span> &lt;&lt; x &lt;&lt; <span class="string">" "</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>如上，问题就是出在<code>Point::output</code>这个函数上，经过我查找各种资料，我终于明白了是link的时候pt.cpp没有被包含在内，导致<code>main</code>函数找不到<code>Point::output</code>函数的定义，因此报错。</p>
-<p>我又在网上查来查去，最后终于找到解决方法：</p>
-<p><img src="https://miao.su/images/2017/03/09/buildtargetsd8b73.png" alt="build targets"></p>
-<p>在工程上右键选择最后一项Properties（属性），点开Build targets选项卡，将下面的Build target files里的.cpp文件都勾上，就可以了。顺便我用的编译器是g++ 5.1.0。</p>
+		<p>前几天的周二以及上一周的周二我们分组进行了 3D 打印和激光雕刻，个人觉得是最有意思的课了（目前的项目中）。主要是可以玩的课，不用出体力活了~</p>
+<p>3D 打印是上周做的。那个老师先是语速爆表得讲完了 NX 的用法，之后又演示了一下 3D 打印机的用法（我啥也没看到T_T），就我们在电脑里挑一个模型打印。我看了看，太复杂的一打开就卡得不要不要的，别的又没啥意思。踌躇了一阵，最终选择了小黄鸭。其实是小“白”鸭，因为我们组的打印材料是白色的，那个东西像线一样，熔点大概是二百多度。打印的时候要把一块有很多小洞的板子固定在底座上，调整好高度，要离打印的头部很近，大概一张纸的厚度。3D 打印比我想象的要慢得多，动辄需要几个小时。开始打印的时候，它会像盖楼一样，打好一层地基（也许是固定作用？），将融化的材料涂在上面。其他浮空的地方也会从底层就搭好“脚手架”，这样一层一层的喷涂，形成一个内部稀疏外壳封闭的模型。</p>
+<p>可能是由于我们的机器或者板子不好，总是固定不住小黄鸭——喷头老是把小黄鸭碰歪，所以开始的几次都夭折了。期间我们是在进行3D建模，做一个瓶子。这个可是要交的，然而老师讲得那么快，没人听得懂，大家都在互帮互助。我见缝插针，操作我旁边的电脑（旁边的电脑才能控制我们组的 3D 打印机），又试了几次。越打越小（节省时间），总共打了五六次，最后成功了两次。一个我留下了（毕竟是我不断尝试，哼~），一个送我们班的女生了。</p>
+<p><a href="https://miao.su/image/jUTqa" target="_blank" rel="external"><img src="https://miao.su/images/2017/05/18/yellow_duckad51c.md.jpg" alt="小黄鸭"></a></p>
+<p>前几天做的是激光雕刻，老师介绍有3种激光加工机器。最好玩的激光内雕机——通过破坏，能在人工水晶内部打印 3D 图像的机器，坏了……另一个是加工金属的，给我们看了一下，切割了一堆钢板米老鼠……最后就是我们主要玩的加工非金属的激光雕刻机，它能打印灰度图片。我事前就精心准备了八张图片。老师发我们一人一个小木板（好抠，所以后来我又要了一块），让我们在其上打印，其实就是用激光把它烧糊、变色。我没想到的是，我的滑稽很受欢迎，我的室友和我三人都在手机壳上打印了滑稽。期间，我打印皮卡丘的时候忘了调高度了，打印失败了T_T。</p>
+<p><img src="https://miao.su/images/2017/05/18/pikaf136a.th.jpg" alt="皮卡丘"><img src="https://miao.su/images/2017/05/18/luo_cat368b0.th.jpg" alt="罗小黑"><img src="https://miao.su/images/2017/05/18/huajib88d7.th.jpg" alt="滑稽"><img src="https://miao.su/images/2017/05/18/failure_pikad0bef.th.jpg" alt="失败的皮卡丘"><br><img src="https://miao.su/images/2017/05/18/yibu4b45f.th.png" alt="伊布"><img src="https://miao.su/images/2017/05/18/pika3baba.th.png" alt="皮卡丘"><img src="https://miao.su/images/2017/05/18/luo_cat_fishing27980.th.png" alt="罗小黑1"><img src="https://miao.su/images/2017/05/18/luo_cat_box0b5fc.th.png" alt="罗小黑2"><br><img src="https://miao.su/images/2017/05/18/luo_cat_3ffc34.th.png" alt="罗小黑3"><img src="https://miao.su/images/2017/05/18/kedaya2ac52.th.png" alt="可达鸭"><img src="https://miao.su/images/2017/05/18/kabie9983.th.png" alt="卡比兽"><img src="https://miao.su/images/2017/05/18/huaji6ca78.th.png" alt="滑稽"></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -127,7 +133,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/编程/">编程</a><a href="/tags/C/">C++</a><a href="/tags/code-blocks/">code::blocks</a><a href="/tags/undefined-reference/">undefined reference</a><a href="/tags/错误/">错误</a>
+  <span></span> <a href="/tags/罗小黑/">罗小黑</a><a href="/tags/随笔/">随笔</a><a href="/tags/金工实习/">金工实习</a><a href="/tags/激光雕刻/">激光雕刻</a><a href="/tags/3D打印/">3D打印</a><a href="/tags/激光/">激光</a><a href="/tags/打印/">打印</a><a href="/tags/大学/">大学</a><a href="/tags/滑稽/">滑稽</a>
   </div>
 
 </div>
@@ -136,7 +142,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://eleflea.github.io/2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/" data-title="因为头文件与源文件分离的C++ 错误：“undefined reference” | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://eleflea.github.io/2017/05/18/金工实习：激光雕刻-3D打印/" data-title="金工实习：激光雕刻&amp;3D打印 | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -149,19 +155,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/10/大物实验/" title="大物实验">
-  <strong>上一篇：</strong><br/>
-  <span>
-  大物实验</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/05/时间复杂度里奇怪的“lg”/"  title="时间复杂度里奇怪的“lg”">
+<a href="/2017/04/17/为什么transition属性无效？/"  title="为什么transition属性无效？">
  <strong>下一篇：</strong><br/> 
- <span>时间复杂度里奇怪的“lg”
+ <span>为什么transition属性无效？
 </span>
 </a>
 </div>
@@ -170,7 +168,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/" data-title="因为头文件与源文件分离的C++ 错误：“undefined reference”" data-url="https://eleflea.github.io/2017/03/09/因为头文件与源文件分离的C-错误：“undefined-reference”/"></div>
+	<div class="ds-thread" data-thread-key="2017/05/18/金工实习：激光雕刻-3D打印/" data-title="金工实习：激光雕刻&3D打印" data-url="https://eleflea.github.io/2017/05/18/金工实习：激光雕刻-3D打印/"></div>
 </section>
 
 
