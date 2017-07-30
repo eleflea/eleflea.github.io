@@ -1,0 +1,622 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  
+    <title>Fluent-Python-读书笔记（二）：可迭代对象的一般用法 | eleflea&#39;s Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="eleflea">
+    
+
+    
+    <meta name="description" content="0x00 好久不见转眼间已经放假了。真的是好久没写了，书也是好久没看。这学期除了在忙活让我五味杂陈的“人脸识别”的项目，还有最后坑爹的压力表设计。但是好歹结果不错，都让我学到了很多。
+以上是题外话，今天要说的可迭代对象 (iterable) 的一般用法。以往我们（也就是我啦）经常滥用 list 对象，在我的程序里几乎不是 list 就是 dict 。因为它们实在是太好用了，也是它们让我觉得写 py">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fluent-Python-读书笔记（二）：可迭代对象的一般用法">
+<meta property="og:url" content="https://eleflea.github.io/2017/07/30/Fluent-Python-读书笔记（二）：可迭代对象的一般用法/index.html">
+<meta property="og:site_name" content="eleflea's Blog">
+<meta property="og:description" content="0x00 好久不见转眼间已经放假了。真的是好久没写了，书也是好久没看。这学期除了在忙活让我五味杂陈的“人脸识别”的项目，还有最后坑爹的压力表设计。但是好歹结果不错，都让我学到了很多。
+以上是题外话，今天要说的可迭代对象 (iterable) 的一般用法。以往我们（也就是我啦）经常滥用 list 对象，在我的程序里几乎不是 list 就是 dict 。因为它们实在是太好用了，也是它们让我觉得写 py">
+<meta property="og:updated_time" content="2017-07-30T12:33:37.718Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Fluent-Python-读书笔记（二）：可迭代对象的一般用法">
+<meta name="twitter:description" content="0x00 好久不见转眼间已经放假了。真的是好久没写了，书也是好久没看。这学期除了在忙活让我五味杂陈的“人脸识别”的项目，还有最后坑爹的压力表设计。但是好歹结果不错，都让我学到了很多。
+以上是题外话，今天要说的可迭代对象 (iterable) 的一般用法。以往我们（也就是我啦）经常滥用 list 对象，在我的程序里几乎不是 list 就是 dict 。因为它们实在是太好用了，也是它们让我觉得写 py">
+
+    
+    <link rel="alternative" href="/atom.xml" title="eleflea&#39;s Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</head>
+
+  <body>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="eleflea&#39;s Blog" title="eleflea&#39;s Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="eleflea&#39;s Blog">eleflea&#39;s Blog</a></h1>
+				<h2 class="blog-motto">在一切变好之前，我们总要经历一些不开心的日子，这段日子也许很长，也许只是一觉醒来</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">主页 | Home</a></li>
+					
+						<li><a href="/index">索引 | Index</a></li>
+					
+						<li><a href="/archives">归档 | Archives</a></li>
+					
+						<li><a href="/about">简介 | About</a></li>
+					
+					<li>
+ 					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="hidden" name="q" value="site:eleflea.github.io">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/07/30/Fluent-Python-读书笔记（二）：可迭代对象的一般用法/" title="Fluent-Python-读书笔记（二）：可迭代对象的一般用法" itemprop="url">Fluent-Python-读书笔记（二）：可迭代对象的一般用法</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="eleflea" target="_blank" itemprop="author">eleflea</a>
+		
+  <p class="article-time">
+    <time datetime="2017-07-30T10:50:14.000Z" itemprop="datePublished"> Published 2017-07-30</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">Contents</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-好久不见"><span class="toc-number">1.</span> <span class="toc-text">0x00 好久不见</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-怎么爽了"><span class="toc-number">2.</span> <span class="toc-text">0x01 怎么爽了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-一般准则"><span class="toc-number">3.</span> <span class="toc-text">0x02 一般准则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Array"><span class="toc-number">3.1.</span> <span class="toc-text">Array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tuple-amp-named-Tuple"><span class="toc-number">3.2.</span> <span class="toc-text">Tuple & named Tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Deque"><span class="toc-number">3.3.</span> <span class="toc-text">Deque</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-维护一个有序序列"><span class="toc-number">4.</span> <span class="toc-text">0x03 维护一个有序序列</span></a></li></ol>
+		
+		</div>
+		
+		<h3 id="0x00-好久不见"><a href="#0x00-好久不见" class="headerlink" title="0x00 好久不见"></a>0x00 好久不见</h3><p>转眼间已经放假了。真的是好久没写了，书也是好久没看。这学期除了在忙活让我五味杂陈的“人脸识别”的项目，还有最后坑爹的压力表设计。但是好歹结果不错，都让我学到了很多。</p>
+<p>以上是题外话，今天要说的可迭代对象 (iterable) 的一般用法。以往我们（也就是我啦）经常滥用 <code>list</code> 对象，在我的程序里几乎不是 <code>list</code> 就是 <code>dict</code> 。因为它们实在是太好用了，也是它们让我觉得写 python 非常爽。那么它们到底应该怎么用呐？</p>
+<h3 id="0x01-怎么爽了"><a href="#0x01-怎么爽了" class="headerlink" title="0x01 怎么爽了"></a>0x01 怎么爽了</h3><p>当然是强大的列表表达式 (listcomps) 啦：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>symbols = <span class="string">'$¢£¥€¤'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>beyond_ascii = [ord(s) <span class="keyword">for</span> s <span class="keyword">in</span> symbols <span class="keyword">if</span> ord(s) &gt; <span class="number">127</span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>beyond_ascii</div><div class="line">[<span class="number">162</span>, <span class="number">163</span>, <span class="number">165</span>, <span class="number">8364</span>, <span class="number">164</span>]</div></pre></td></tr></table></figure>
+<p>用 listcomps 可以基本取代 map 函数，而且比它更方便、易读。如果把最外层的 <code>[]</code>换成 <code>()</code>  就变成了生成器对象，这在要用计算好的对象做迭代的时候可以节约资源。</p>
+<p>另外自然还有 dictcomps ，用来生成字典：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>DIAL_CODES = [</div><div class="line"><span class="meta">... </span>(<span class="number">86</span>, <span class="string">'China'</span>),</div><div class="line"><span class="meta">... </span>(<span class="number">91</span>, <span class="string">'India'</span>),</div><div class="line"><span class="meta">... </span>(<span class="number">1</span>, <span class="string">'United States'</span>),</div><div class="line"><span class="meta">... </span>(<span class="number">62</span>, <span class="string">'Indonesia'</span>),</div><div class="line"><span class="meta">... </span>(<span class="number">55</span>, <span class="string">'Brazil'</span>),</div><div class="line"><span class="meta">... </span>(<span class="number">92</span>, <span class="string">'Pakistan'</span>),</div><div class="line"><span class="meta">... </span>(<span class="number">880</span>, <span class="string">'Bangladesh'</span>),</div><div class="line"><span class="meta">... </span>(<span class="number">234</span>, <span class="string">'Nigeria'</span>),</div><div class="line"><span class="meta">... </span>(<span class="number">7</span>, <span class="string">'Russia'</span>),</div><div class="line"><span class="meta">... </span>(<span class="number">81</span>, <span class="string">'Japan'</span>),</div><div class="line"><span class="meta">... </span>]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>country_code = &#123;country: code <span class="keyword">for</span> code, country <span class="keyword">in</span> DIAL_CODES&#125;</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>country_code</div><div class="line">&#123;<span class="string">'China'</span>: <span class="number">86</span>, <span class="string">'India'</span>: <span class="number">91</span>, <span class="string">'Bangladesh'</span>: <span class="number">880</span>, <span class="string">'United States'</span>: <span class="number">1</span>,</div><div class="line"><span class="string">'Pakistan'</span>: <span class="number">92</span>, <span class="string">'Japan'</span>: <span class="number">81</span>, <span class="string">'Russia'</span>: <span class="number">7</span>, <span class="string">'Brazil'</span>: <span class="number">55</span>, <span class="string">'Nigeria'</span>:</div><div class="line"><span class="number">234</span>, <span class="string">'Indonesia'</span>: <span class="number">62</span>&#125;</div></pre></td></tr></table></figure>
+<p>以上操作可以方便的把 <code>dict</code> 键值对交换。</p>
+<h3 id="0x02-一般准则"><a href="#0x02-一般准则" class="headerlink" title="0x02 一般准则"></a>0x02 一般准则</h3><p>既然不能什么事都交给 <code>list</code> 干，那么应该遵循怎样的规则呢？下面给出了几种常用的对象：</p>
+<ul>
+<li>list</li>
+<li>array</li>
+<li>tuple</li>
+<li>deque</li>
+<li>named tuple</li>
+</ul>
+<p>这里面 array 是个比较特殊的对象，它是一个只能包含单一数据类型的序列 (flat sequence)，其余的都可以包含各种各样的数据类型。另外，tuple 和 namedtuple 都是不可变对象，意味着它们一旦被赋值，是不允许改变的。</p>
+<h4 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> array <span class="keyword">import</span> array</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> random <span class="keyword">import</span> random</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>floats = array(<span class="string">'d'</span>, (random() <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">10</span>**<span class="number">7</span>)))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>floats[<span class="number">-1</span>]</div><div class="line"><span class="number">0.07802343889111107</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>fp = open(<span class="string">'floats.bin'</span>, <span class="string">'wb'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>floats.tofile(fp)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>fp.close()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>floats2 = array(<span class="string">'d'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>fp = open(<span class="string">'floats.bin'</span>, <span class="string">'rb'</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>floats2.fromfile(fp, <span class="number">10</span>**<span class="number">7</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>fp.close()</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>floats2[<span class="number">-1</span>]</div><div class="line"><span class="number">0.07802343889111107</span></div></pre></td></tr></table></figure>
+<p>Array 主要用于储存大量的同类型数据，在这方面它比 <code>list</code> 要更快、更节约资源。不过我们一般用 numpy.array 。矩阵运算必不可少的工具。</p>
+<h4 id="Tuple-amp-named-Tuple"><a href="#Tuple-amp-named-Tuple" class="headerlink" title="Tuple &amp; named Tuple"></a>Tuple &amp; named Tuple</h4><blockquote>
+<p>Tuples Are Not Just Immutable Lists</p>
+<p><em>——书第26页</em></p>
+</blockquote>
+<p><code>tuple</code> 不仅仅是不可变的 <code>list</code> 。事实上，我们经常用 <code>tuple</code> 做记录 (record) 。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>traveler_ids = [(<span class="string">'USA'</span>, <span class="string">'31195855'</span>), (<span class="string">'BRA'</span>, <span class="string">'CE342567'</span>),</div><div class="line"><span class="meta">... </span>(<span class="string">'ESP'</span>, <span class="string">'XDA205856'</span>)]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> passport <span class="keyword">in</span> sorted(traveler_ids):</div><div class="line"><span class="meta">... </span>print(<span class="string">'%s/%s'</span> % passport)</div><div class="line">...</div><div class="line">BRA/CE342567</div><div class="line">ESP/XDA205856</div><div class="line">USA/<span class="number">31195855</span></div></pre></td></tr></table></figure>
+<p>像这样的列表的元组 (list of tuples) 是十分常用的一种结构，它不仅仅储存记录，还可以十分方便的转换为 <code>dict</code> 对象。</p>
+<p><code>namedtuple</code> 是 <code>tuple</code> 的加强版：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> collections <span class="keyword">import</span> namedtuple</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>City = namedtuple(<span class="string">'City'</span>, <span class="string">'name country population coordinates'</span>) <span class="comment">#[1]</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tokyo = City(<span class="string">'Tokyo'</span>, <span class="string">'JP'</span>, <span class="number">36.933</span>, (<span class="number">35.689722</span>, <span class="number">139.691667</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tokyo</div><div class="line">City(name=<span class="string">'Tokyo'</span>, country=<span class="string">'JP'</span>, population=<span class="number">36.933</span>, coordinates=(<span class="number">35.689722</span>,</div><div class="line"><span class="number">139.691667</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tokyo.population</div><div class="line"><span class="number">36.933</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tokyo.coordinates</div><div class="line">(<span class="number">35.689722</span>, <span class="number">139.691667</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>tokyo[<span class="number">1</span>]</div><div class="line"><span class="string">'JP'</span></div></pre></td></tr></table></figure>
+<p>[1]: Two parameters are required to create a named tuple: a class name and a list of field names, which can be given as an iterable of strings or as a single spacedelimited string.</p>
+<h4 id="Deque"><a href="#Deque" class="headerlink" title="Deque"></a>Deque</h4><p><code>deque</code>  (double-ended queue) 是一种双向队列，我用得比较少。</p>
+<blockquote>
+<p>The class collections.deque is a thread-safe double-ended queue designed for fast inserting and removing from both ends.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> collections <span class="keyword">import</span> deque</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq = deque(range(<span class="number">10</span>), maxlen=<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq</div><div class="line">deque([<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], maxlen=<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq.rotate(<span class="number">3</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq</div><div class="line">deque([<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], maxlen=<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq.rotate(<span class="number">-4</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq</div><div class="line">deque([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">0</span>], maxlen=<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq.appendleft(<span class="number">-1</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq</div><div class="line">deque([<span class="number">-1</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>], maxlen=<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq.extend([<span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq</div><div class="line">deque([<span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>, <span class="number">11</span>, <span class="number">22</span>, <span class="number">33</span>], maxlen=<span class="number">10</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq.extendleft([<span class="number">10</span>, <span class="number">20</span>, <span class="number">30</span>, <span class="number">40</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>dq</div><div class="line">deque([<span class="number">40</span>, <span class="number">30</span>, <span class="number">20</span>, <span class="number">10</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>], maxlen=<span class="number">10</span>)</div></pre></td></tr></table></figure>
+<h3 id="0x03-维护一个有序序列"><a href="#0x03-维护一个有序序列" class="headerlink" title="0x03 维护一个有序序列"></a>0x03 维护一个有序序列</h3><blockquote>
+<p>The bisect module offers two main functions—bisect and insort—that use the binary search algorithm to quickly find and insert items in any sorted sequence.</p>
+</blockquote>
+<p>一旦我们有一个有序的序列，最好不要破坏它的有序性。 <code>bisect</code> 使用二分法来维护一个有序序列。</p>
+<p>下面有一个通过这种方式来给成绩分级的巧妙例子：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> bisect</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="function"><span class="keyword">def</span> <span class="title">grade</span><span class="params">(score, breakpoints=[<span class="number">60</span>, <span class="number">70</span>, <span class="number">80</span>, <span class="number">90</span>], grades=<span class="string">'FDCBA'</span>)</span>:</span></div><div class="line"><span class="meta">... </span>i = bisect.bisect(breakpoints, score)</div><div class="line"><span class="meta">... </span><span class="keyword">return</span> grades[i]</div><div class="line">...</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>[grade(score) <span class="keyword">for</span> score <span class="keyword">in</span> [<span class="number">33</span>, <span class="number">99</span>, <span class="number">77</span>, <span class="number">70</span>, <span class="number">89</span>, <span class="number">90</span>, <span class="number">100</span>]]</div><div class="line">[<span class="string">'F'</span>, <span class="string">'A'</span>, <span class="string">'C'</span>, <span class="string">'C'</span>, <span class="string">'B'</span>, <span class="string">'A'</span>, <span class="string">'A'</span>]</div></pre></td></tr></table></figure>
+<p>值得注意的是：<code>grade</code> 函数定义中的 <code>breakpoints=[60, 70, 80, 90]</code> 不是很稳妥，尽量不要用可变对象作为函数的默认参数。</p>
+<p>其实 <code>bisect</code> 还有很多值得关注的函数和用法，具体可以参阅官方文档。</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/读书笔记/">读书笔记</a><a href="/tags/fluent-python/">fluent python</a><a href="/tags/python/">python</a><a href="/tags/编程/">编程</a><a href="/tags/iterable/">iterable</a><a href="/tags/bisect/">bisect</a>
+  </div>
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://eleflea.github.io/2017/07/30/Fluent-Python-读书笔记（二）：可迭代对象的一般用法/" data-title="Fluent-Python-读书笔记（二）：可迭代对象的一般用法 | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/05/18/金工实习：激光雕刻-3D打印/"  title="金工实习：激光雕刻&amp;3D打印">
+ <strong>下一篇：</strong><br/> 
+ <span>金工实习：激光雕刻&amp;3D打印
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/07/30/Fluent-Python-读书笔记（二）：可迭代对象的一般用法/" data-title="Fluent-Python-读书笔记（二）：可迭代对象的一般用法" data-url="https://eleflea.github.io/2017/07/30/Fluent-Python-读书笔记（二）：可迭代对象的一般用法/"></div>
+</section>
+
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">Contents</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-好久不见"><span class="toc-number">1.</span> <span class="toc-text">0x00 好久不见</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-怎么爽了"><span class="toc-number">2.</span> <span class="toc-text">0x01 怎么爽了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x02-一般准则"><span class="toc-number">3.</span> <span class="toc-text">0x02 一般准则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Array"><span class="toc-number">3.1.</span> <span class="toc-text">Array</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tuple-amp-named-Tuple"><span class="toc-number">3.2.</span> <span class="toc-text">Tuple & named Tuple</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Deque"><span class="toc-number">3.3.</span> <span class="toc-text">Deque</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x03-维护一个有序序列"><span class="toc-number">4.</span> <span class="toc-text">0x03 维护一个有序序列</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<aside class="clearfix">
+
+  
+
+  
+<div class="tagslist">
+	<p class="asidetitle">Tags</p>
+		<ul class="clearfix">
+		
+			
+				<li><a href="/tags/编程/" title="编程">编程<sup>8</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/随笔/" title="随笔">随笔<sup>6</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/python/" title="python">python<sup>4</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/物理/" title="物理">物理<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/罗小黑/" title="罗小黑">罗小黑<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/读书笔记/" title="读书笔记">读书笔记<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/fluent-python/" title="fluent python">fluent python<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息论/" title="信息论">信息论<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/复杂度/" title="复杂度">复杂度<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/排序/" title="排序">排序<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/MTJJ/" title="MTJJ">MTJJ<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/动漫/" title="动漫">动漫<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/切片/" title="切片">切片<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/罗小黑战记/" title="罗小黑战记">罗小黑战记<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/iterable/" title="iterable">iterable<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ORM/" title="ORM">ORM<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/flask/" title="flask">flask<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sqlite/" title="sqlite">sqlite<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/requests/" title="requests">requests<sup>1</sup></a></li>
+			
+		
+		</ul>
+</div>
+
+
+  <div class="linkslist">
+  <p class="asidetitle">Links</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="https://www.v2ex.com" target="_blank" title="V2EX">V2EX</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://tieba.baidu.com/f?kw=firefox" target="_blank" title="firefox吧">firefox吧</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">Weibo</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=null&verifier=&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello ,This is my blog on github. <br/>
+			This man is lazy, always.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5187476165" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/https://github.com/eleflea" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		<a href="mailto:dmzitnzc@gmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2017 
+		
+		<a href="/about" target="_blank" title="eleflea">eleflea</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"eleflea"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="Back to Top"><img src="/img/scrollup.png"/></a>
+	</div>
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End --><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+  </body>
+</html>
