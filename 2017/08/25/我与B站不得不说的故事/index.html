@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="eleflea's Blog">
 <meta property="og:description" content="初到 Bilibili我第一次来到B站还是在 2013 年，算起来那时应该是高一下半学期暑假。那时候的B站人还比较少，我来B站也只是看游戏区的（现在也是）。那时候B站还有很多直接外链别的视频网站的视频，也就是说片源在别人的服务器上，但是却没有广告。这也必将引起侵权纠纷，事实上也是如此。我当初看好B站就是因为它没有广告，还有弹幕，看起来就很爽，现在也大体保持免费无广告，还是挺好的。
 我在 2013">
-<meta property="og:updated_time" content="2017-08-25T02:23:02.164Z">
+<meta property="og:updated_time" content="2017-08-25T02:26:20.283Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我与B站不得不说的故事">
 <meta name="twitter:description" content="初到 Bilibili我第一次来到B站还是在 2013 年，算起来那时应该是高一下半学期暑假。那时候的B站人还比较少，我来B站也只是看游戏区的（现在也是）。那时候B站还有很多直接外链别的视频网站的视频，也就是说片源在别人的服务器上，但是却没有广告。这也必将引起侵权纠纷，事实上也是如此。我当初看好B站就是因为它没有广告，还有弹幕，看起来就很爽，现在也大体保持免费无广告，还是挺好的。
@@ -115,7 +115,7 @@
 <h3 id="Bilibili-这几年"><a href="#Bilibili-这几年" class="headerlink" title="Bilibili 这几年"></a>Bilibili 这几年</h3><p>我来到B站的几年，正好是B占发展最快的几年。如今的B站已经成为中国最大的视频网站（戏称“世界最大同性交友网站”），说实在的我也没想到。前几年也有了自己的直播，视频播放也都便成了领先国内的 html5 技术了。</p>
 <p>然而，所谓树大招风，如此庞大的视频网站也自然不能再做那种“盗片”的事了。随着国内版权意识的提升，也或许是因为B站服务器带宽的不足，总之B站会限制国外，尤其是日本地区的访问速度。</p>
 <p><a href="http://interface.bilibili.com/player?id=cid:22435723&amp;aid=13716817" target="_blank" rel="external">http://interface.bilibili.com/player?id=cid:22435723&amp;aid=13716817</a> 此网址会根据访问者的 IP 来判别访问者的地区。如果它认为你是来自日本的，它就会在之后返回的视频真实地址中加入速度限制。比如下面这个地址里的 rate=7000 ，这个时候你播放视频会非常卡顿。</p>
-<p><a href="http://tx.acgvideo.com/23/57/22435723/22435723-1-80.flv?txTime=1503631888&amp;platform=pc&amp;txSecret=2b28aef6ba0e1ba2d14ea070383437a0&amp;oi=1760469024&amp;rate=7000&amp;hfb=b99ffc3c5c68f00a33123bb25f882d5b" target="_blank" rel="external">http://tx.acgvideo.com/23/57/22435723/22435723-1-80.flv?txTime=1503631888&amp;platform=pc&amp;txSecret=2b28aef6ba0e1ba2d14ea070383437a0&amp;oi=1760469024&amp;<strong>rate=7000</strong>&amp;hfb=b99ffc3c5c68f00a33123bb25f882d5b</a></p>
+<p><a href="http://tx.acgvideo.com/23/57/22435723/22435723-1-80.flv?txTime=1503631888&amp;platform=pc&amp;txSecret=2b28aef6ba0e1ba2d14ea070383437a0&amp;oi=1760469024&amp;**rate=7000**&amp;hfb=b99ffc3c5c68f00a33123bb25f882d5b" target="_blank" rel="external">http://tx.acgvideo.com/23/57/22435723/22435723-1-80.flv?txTime=1503631888&amp;platform=pc&amp;txSecret=2b28aef6ba0e1ba2d14ea070383437a0&amp;oi=1760469024&amp;**rate=7000**&amp;hfb=b99ffc3c5c68f00a33123bb25f882d5b</a></p>
 <p>可是这何在中国的我，又有什么关系呢？</p>
 <h3 id="我上大学了"><a href="#我上大学了" class="headerlink" title="我上大学了"></a>我上大学了</h3><p>2015 年，我来到了东北大学。东北大学的网还是不错的，有 ipv6 这种好东西。我们学校网络套餐是每月 20 元 30GB ，超出部分 1 元 1G 。可是像我这种看视频大户，正常每月七八十 G 大概。这我哪用得起啊，再也不能开心的看B站了！</p>
 <p>后来，我在网上注意到了可以用 Showsocks + ipv6 来做代理，使用免费的 ipv6 来访问 ipv4 的网络。具体就是本地通过 ipv6 访问远程服务器，服务器同时支持 ipv6 和 ipv4 ，服务器通过 ipv4 访问网站，再把内容通过 ipv6 发回来。这其中远程服务器是关键，它要满足以下条件：</p>
@@ -130,7 +130,7 @@
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>对于看B站视频的卡顿，我想了很多办法。比较好的办法是下载下来，用 bililocal 加载弹幕看。然而我还是不爽，为什么不能在线愉快的看！终于，在不久之前，我灵光一闪，突然想到：我不能流畅的看是因为服务器认为我是来自日本的，我不得不用日本的服务器访问是因为视频流量太大。然而，检测我的地区的流量消耗又不大，我可以直接访问那个地址，用代理访问视频真实地址啊。</p>
 <p>要实现这点，只需要使用白名单，把需要直接访问的域名加入，不在名单中的域名使用代理访问。想到这，我稍微修改了 ss 的 pac.txt ，把它从黑名单改成了白名单：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> domains = &#123;</div><div class="line">    <span class="string">"interface.bilibili.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"192.168.1.1"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"google.com.hk"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"google.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"google.com.jp"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"youtube.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"googlevideo.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"neu.edu.cn"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"neu6.edu.cn"</span>: <span class="number">1</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxy = <span class="string">"__PROXY__"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> direct = <span class="string">'DIRECT;'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> hasOwnProperty = <span class="built_in">Object</span>.hasOwnProperty;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">FindProxyForURL</span>(<span class="params">url, host</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> suffix;</div><div class="line">    <span class="keyword">var</span> pos = host.lastIndexOf(<span class="string">'.'</span>);</div><div class="line">    pos = host.lastIndexOf(<span class="string">'.'</span>, pos - <span class="number">1</span>);</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (pos &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (hasOwnProperty.call(domains, host)) &#123;</div><div class="line">                <span class="keyword">return</span> direct;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> proxy;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        suffix = host.substring(pos + <span class="number">1</span>);</div><div class="line">        <span class="keyword">if</span> (hasOwnProperty.call(domains, suffix)) &#123;</div><div class="line">            <span class="keyword">return</span> direct;</div><div class="line">        &#125;</div><div class="line">        pos = host.lastIndexOf(<span class="string">'.'</span>, pos - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>出了B站要用的 interface.bilibili.com ，我还加入了几个我常用的不需要代理的域名（有 ipv6 的和校内的）。这份文件中的<code>domains</code>对象的属性是全局域名包括子域名，比如 bilibili.com 包括 所有其下的域名（interface.bilibili.com, www.bilibili.com …）。</p>
+<p>除了B站要用的 interface.bilibili.com ，我还加入了几个我常用的不需要代理的域名（有 ipv6 的和校内的）。这份文件中的<code>domains</code>对象的属性是全局域名包括子域名，比如 bilibili.com 包括 所有其下的域名（interface.bilibili.com, www.bilibili.com …）。</p>
 <p>我用这份 pac 文件试了试，果真可以，再也不会出现视频卡顿的状况了！这份 pac 文件由 js 写成，因此还可以实现更精细的控制，这种欺骗服务器的方法也可以用在其他对地域有限制的网站上。</p>
   
 	</div>
@@ -140,7 +140,7 @@
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/bilibili/">bilibili</a><a href="/tags/vps/">vps</a><a href="/tags/B站/">B站</a><a href="/tags/大学/">大学</a><a href="/tags/javascript/">javascript</a><a href="/tags/vultr/">vultr</a>
+  <span></span> <a href="/tags/javascript/">javascript</a><a href="/tags/bilibili/">bilibili</a><a href="/tags/vps/">vps</a><a href="/tags/B站/">B站</a><a href="/tags/大学/">大学</a><a href="/tags/vultr/">vultr</a>
   </div>
 
 </div>
@@ -162,6 +162,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/09/15/MATLAB图像处理：提取线稿/" title="MATLAB图像处理：提取线稿">
+  <strong>上一篇：</strong><br/>
+  <span>
+  MATLAB图像处理：提取线稿</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2017/07/30/Fluent-Python-读书笔记（二）：可迭代对象的一般用法/"  title="Fluent-Python-读书笔记（二）：可迭代对象的一般用法">
@@ -201,7 +209,7 @@
 		<ul class="clearfix">
 		
 			
-				<li><a href="/tags/编程/" title="编程">编程<sup>8</sup></a></li>
+				<li><a href="/tags/编程/" title="编程">编程<sup>9</sup></a></li>
 			
 		
 			
@@ -217,26 +225,6 @@
 			
 		
 			
-				<li><a href="/tags/算法/" title="算法">算法<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/排序/" title="排序">排序<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/复杂度/" title="复杂度">复杂度<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/信息论/" title="信息论">信息论<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/fluent-python/" title="fluent python">fluent python<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/大学/" title="大学">大学<sup>2</sup></a></li>
 			
 		
@@ -245,19 +233,51 @@
 			
 		
 			
-				<li><a href="/tags/物理/" title="物理">物理<sup>2</sup></a></li>
-			
-		
-			
 				<li><a href="/tags/读书笔记/" title="读书笔记">读书笔记<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/flask/" title="flask">flask<sup>1</sup></a></li>
+				<li><a href="/tags/fluent-python/" title="fluent python">fluent python<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/物理/" title="物理">物理<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/信息论/" title="信息论">信息论<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/复杂度/" title="复杂度">复杂度<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/排序/" title="排序">排序<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/算法/" title="算法">算法<sup>2</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/实验/" title="实验">实验<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/requests/" title="requests">requests<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
 			
 		
 			
 				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/code-blocks/" title="code::blocks">code::blocks<sup>1</sup></a></li>
 			
 		
 			
@@ -266,18 +286,6 @@
 		
 			
 				<li><a href="/tags/错误/" title="错误">错误<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/东北大学/" title="东北大学">东北大学<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/大物/" title="大物">大物<sup>1</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/实验/" title="实验">实验<sup>1</sup></a></li>
 			
 		
 		</ul>

@@ -4,29 +4,42 @@
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
   
-    <title>Fluent Python 读书笔记（一）：切片对象 | eleflea&#39;s Blog</title>
+    <title>MATLAB图像处理：提取线稿 | eleflea&#39;s Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="eleflea">
     
 
     
-    <meta name="description" content="0x00 切片对象切片是可迭代对象中的一个常见而又强大的用法，像这样s[a:b:c]的用法是十分常见的。但是这样的用法可读性不高。因为 a, b, c 都是数字，看起来完全不知道你在提取什么信息，也十分不优雅。这样，我们的切片对象就应运而生了。
+    <meta name="description" content="创意这个方法其实很久以前我就了解了——用最小值和颜色减淡。我以前用photoshop的时候都是采用这个方法的。不过我过去一直不知道它的原理是什么，知道最近学习了数字图像处理。最小值十分适合用来侵蚀线条，而颜色减淡则可以很好的把线条凸显出来。具体的操作如下：
 
-The notation a:b:c is only valid within [] when used as the indexing or subs">
+去色，变为灰度图像，记为图1
+对图1反色，记为图2
+对图2应用最小值滤波器，得到图3
+图1作为基层，图3作为混合层，与图3做颜色减淡，得到最">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fluent Python 读书笔记（一）：切片对象">
-<meta property="og:url" content="https://eleflea.github.io/2017/04/09/Fluent-Python-读书笔记（一）：切片对象/index.html">
+<meta property="og:title" content="MATLAB图像处理：提取线稿">
+<meta property="og:url" content="https://eleflea.github.io/2017/09/15/MATLAB图像处理：提取线稿/index.html">
 <meta property="og:site_name" content="eleflea's Blog">
-<meta property="og:description" content="0x00 切片对象切片是可迭代对象中的一个常见而又强大的用法，像这样s[a:b:c]的用法是十分常见的。但是这样的用法可读性不高。因为 a, b, c 都是数字，看起来完全不知道你在提取什么信息，也十分不优雅。这样，我们的切片对象就应运而生了。
+<meta property="og:description" content="创意这个方法其实很久以前我就了解了——用最小值和颜色减淡。我以前用photoshop的时候都是采用这个方法的。不过我过去一直不知道它的原理是什么，知道最近学习了数字图像处理。最小值十分适合用来侵蚀线条，而颜色减淡则可以很好的把线条凸显出来。具体的操作如下：
 
-The notation a:b:c is only valid within [] when used as the indexing or subs">
-<meta property="og:updated_time" content="2017-04-09T08:09:59.078Z">
+去色，变为灰度图像，记为图1
+对图1反色，记为图2
+对图2应用最小值滤波器，得到图3
+图1作为基层，图3作为混合层，与图3做颜色减淡，得到最">
+<meta property="og:image" content="https://miao.su/images/2017/09/16/compare19937.jpg">
+<meta property="og:image" content="https://miao.su/images/2017/09/16/subtleadc68.jpg">
+<meta property="og:image" content="https://miao.su/images/2017/09/16/perfect393e8.jpg">
+<meta property="og:updated_time" content="2017-09-16T09:12:20.731Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fluent Python 读书笔记（一）：切片对象">
-<meta name="twitter:description" content="0x00 切片对象切片是可迭代对象中的一个常见而又强大的用法，像这样s[a:b:c]的用法是十分常见的。但是这样的用法可读性不高。因为 a, b, c 都是数字，看起来完全不知道你在提取什么信息，也十分不优雅。这样，我们的切片对象就应运而生了。
+<meta name="twitter:title" content="MATLAB图像处理：提取线稿">
+<meta name="twitter:description" content="创意这个方法其实很久以前我就了解了——用最小值和颜色减淡。我以前用photoshop的时候都是采用这个方法的。不过我过去一直不知道它的原理是什么，知道最近学习了数字图像处理。最小值十分适合用来侵蚀线条，而颜色减淡则可以很好的把线条凸显出来。具体的操作如下：
 
-The notation a:b:c is only valid within [] when used as the indexing or subs">
+去色，变为灰度图像，记为图1
+对图1反色，记为图2
+对图2应用最小值滤波器，得到图3
+图1作为基层，图3作为混合层，与图3做颜色减淡，得到最">
+<meta name="twitter:image" content="https://miao.su/images/2017/09/16/compare19937.jpg">
 
     
     <link rel="alternative" href="/atom.xml" title="eleflea&#39;s Blog" type="application/atom+xml">
@@ -88,14 +101,14 @@ The notation a:b:c is only valid within [] when used as the indexing or subs">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/09/Fluent-Python-读书笔记（一）：切片对象/" title="Fluent Python 读书笔记（一）：切片对象" itemprop="url">Fluent Python 读书笔记（一）：切片对象</a>
+      <a href="/2017/09/15/MATLAB图像处理：提取线稿/" title="MATLAB图像处理：提取线稿" itemprop="url">MATLAB图像处理：提取线稿</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="eleflea" target="_blank" itemprop="author">eleflea</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-09T07:23:24.000Z" itemprop="datePublished"> Published 2017-04-09</time>
+    <time datetime="2017-09-15T14:54:43.000Z" itemprop="datePublished"> Published 2017-09-15</time>
     
   </p>
 </header>
@@ -104,17 +117,36 @@ The notation a:b:c is only valid within [] when used as the indexing or subs">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">Contents</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-切片对象"><span class="toc-number">1.</span> <span class="toc-text">0x00 切片对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-用法"><span class="toc-number">2.</span> <span class="toc-text">0x01 用法</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创意"><span class="toc-number">1.</span> <span class="toc-text">创意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">2.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改进"><span class="toc-number">3.</span> <span class="toc-text">改进</span></a></li></ol>
 		
 		</div>
 		
-		<h3 id="0x00-切片对象"><a href="#0x00-切片对象" class="headerlink" title="0x00 切片对象"></a>0x00 切片对象</h3><p>切片是可迭代对象中的一个常见而又强大的用法，像这样<code>s[a:b:c]</code>的用法是十分常见的。但是这样的用法可读性不高。因为 a, b, c 都是数字，看起来完全不知道你在提取什么信息，也十分不优雅。这样，我们的切片对象就应运而生了。</p>
-<blockquote>
-<p>The notation <code>a:b:c</code> is only valid within <code>[]</code> when used as the indexing or subscript<br>operator, and it produces a slice object: <code>slice(a, b, c)</code>.As we will see in “How Slicing<br>Works” on page 281, to evaluate the expression <code>seq[start:stop:step]</code>, Python calls<br><code>seq.__getitem__(slice(start, stop, step))</code>.<br><em>对应书第34页</em></p>
-</blockquote>
-<h3 id="0x01-用法"><a href="#0x01-用法" class="headerlink" title="0x01 用法"></a>0x01 用法</h3><p>这里说的是我们可以用<code>slice(a, b, c)</code>这样的 slice 对象来取代<code>[a:b:c]</code>这种写法。像下面这样：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>invoice = <span class="string">"""</span></div><div class="line"><span class="meta">... </span>0.....6.................................40........52...55........</div><div class="line"><span class="meta">... </span>1909 Pimoroni PiBrella $17.50 3 $52.50</div><div class="line"><span class="meta">... </span>1489 6mm Tactile Switch x20 $4.95 2 $9.90</div><div class="line"><span class="meta">... </span>1510 Panavise Jr. - PV-201 $28.00 1 $28.00</div><div class="line"><span class="meta">... </span>1601 PiTFT Mini Kit 320x240 $34.95 1 $34.95</div><div class="line"><span class="meta">... </span>"""</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>SKU = slice(<span class="number">0</span>, <span class="number">6</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>DESCRIPTION = slice(<span class="number">6</span>, <span class="number">40</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>UNIT_PRICE = slice(<span class="number">40</span>, <span class="number">52</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>QUANTITY = slice(<span class="number">52</span>, <span class="number">55</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>ITEM_TOTAL = slice(<span class="number">55</span>, <span class="keyword">None</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>line_items = invoice.split(<span class="string">'\n'</span>)[<span class="number">2</span>:]</div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> item <span class="keyword">in</span> line_items:</div><div class="line"><span class="meta">... </span>print(item[UNIT_PRICE], item[DESCRIPTION])</div><div class="line">...</div><div class="line">	$<span class="number">17.50</span>  Pimoroni PiBrella</div><div class="line">	 $<span class="number">4.95</span>  <span class="number">6</span>mm Tactile Switch x20</div><div class="line">	$<span class="number">28.00</span>  Panavise Jr. - PV<span class="number">-201</span></div><div class="line">	$<span class="number">34.95</span>  PiTFT Mini Kit <span class="number">320</span>x240</div></pre></td></tr></table></figure>
-<p>如此，用一个 个 slice 对象来取代以前的切片方法，是不是优雅又美观？同样也方便日后修改，这样的方法在读取记录的时候十分有用。</p>
+		<h3 id="创意"><a href="#创意" class="headerlink" title="创意"></a>创意</h3><p>这个方法其实很久以前我就了解了——用最小值和颜色减淡。我以前用photoshop的时候都是采用这个方法的。不过我过去一直不知道它的原理是什么，知道最近学习了数字图像处理。最小值十分适合用来侵蚀线条，而颜色减淡则可以很好的把线条凸显出来。具体的操作如下：</p>
+<ul>
+<li>去色，变为灰度图像，记为图1</li>
+<li>对图1反色，记为图2</li>
+<li>对图2应用最小值滤波器，得到图3</li>
+<li>图1作为基层，图3作为混合层，与图3做颜色减淡，得到最终图像</li>
+</ul>
+<p>其中，颜色减淡的计算公式是：</p>
+<ul>
+<li>基色=0时，结果色=0；</li>
+<li>基色=255时，结果色=255；</li>
+<li>结果色 = MAX(基色 / (255 - 混合色), 255)</li>
+</ul>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>下面给出MATLAB的实现：</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">% roundMask.m</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ M ]</span> = <span class="title">roundMask</span><span class="params">( radius )</span></span></div><div class="line">r = <span class="built_in">floor</span>(radius);</div><div class="line">axis = -r: r;</div><div class="line">[x, y] = <span class="built_in">meshgrid</span>(axis, axis);</div><div class="line">distance = x .^ <span class="number">2</span> + y .^ <span class="number">2</span>;</div><div class="line">M = <span class="built_in">zeros</span>(<span class="number">2</span> * r + <span class="number">1</span>);</div><div class="line">M(distance &lt;= radius ^ <span class="number">2</span>) = <span class="number">1</span>;</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">% sketch.m</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ PIM ]</span> = <span class="title">sketch</span><span class="params">( IM, radius )</span></span></div><div class="line">r = <span class="built_in">floor</span>(radius);</div><div class="line">IM = im2double(rgb2gray(IM));</div><div class="line">RIM = <span class="number">1</span> - IM;</div><div class="line">templateM = roundMask(radius);</div><div class="line">[width, height] = <span class="built_in">size</span>(IM);</div><div class="line">PIM = <span class="built_in">zeros</span>(width, height);</div><div class="line"><span class="keyword">for</span> y = <span class="number">1</span>: height</div><div class="line">    <span class="keyword">for</span> x = <span class="number">1</span>: width</div><div class="line">        sx = max(<span class="number">1</span>, x - r);</div><div class="line">        ex = min(width, x + r);</div><div class="line">        sy = max(<span class="number">1</span>, y - r);</div><div class="line">        ey = min(height, y + r);</div><div class="line">        domain = RIM(sx:ex, sy:ey);</div><div class="line">        maskM = templateM(sx + r - x + <span class="number">1</span>:ex + r - x + <span class="number">1</span>,...</div><div class="line">            sy + r - y + <span class="number">1</span>:ey + r - y + <span class="number">1</span>);</div><div class="line">        PIM(x, y) = min(domain(maskM ~= <span class="number">0</span>));</div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line">PIM = min(IM ./ (<span class="number">1</span> - PIM), <span class="number">1</span>);</div><div class="line">PIM(IM == <span class="number">0</span>) = <span class="number">0</span>;</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>roundMask.m是得到一个圆形领域模版，sketch.m才是提取线稿的部分。它接受图片矩阵和一个领域半径，返回经过处理的double型矩阵。这里不用ordfilt2等函数是因为他们都不能很好的处理图像边缘，会有黑边。所以我就自己实现了最小值滤波器。</p>
+<p>处理的效果如下图所示：</p>
+<p><a href="https://miao.su/image/MYhAf" target="_blank" rel="external"><img src="https://miao.su/images/2017/09/16/compare19937.jpg" alt="原图与经过处理的图像"></a></p>
+<h3 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h3><p>但是仔细观察会发现黑色线条的周围会有灰色的阴影，像下图这样。</p>
+<p><a href="https://miao.su/image/MYUKL" target="_blank" rel="external"><img src="https://miao.su/images/2017/09/16/subtleadc68.jpg" alt="注意箭头所指的位置"></a></p>
+<p>之后我想了很多办法去除他们，受到一个叫选择性模糊的算法的启发，我决定使用如下方法。对于一个领域内的像素，只选择与该像素的灰度接近的某些像素计算平均值；如果值大于某一阈值，则取某些像素的最大值作为结果；如果值小于某一阈值，则取某些像素的最小值作为结果。这样可以有效的保留边缘。下面是MATLAB实现。</p>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">% removeNoise.m</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="params">[ PIM ]</span> = <span class="title">removeNoise</span><span class="params">( IM, radius, distance, threshold )</span></span></div><div class="line">r = <span class="built_in">floor</span>(radius);</div><div class="line">[width, height] = <span class="built_in">size</span>(IM);</div><div class="line">templateM = roundMask(radius);</div><div class="line">PIM = <span class="built_in">zeros</span>(width, height);</div><div class="line"><span class="keyword">for</span> y = <span class="number">1</span>: height</div><div class="line">    <span class="keyword">for</span> x = <span class="number">1</span>: width</div><div class="line">        sx = max(<span class="number">1</span>, x - r);</div><div class="line">        ex = min(width, x + r);</div><div class="line">        sy = max(<span class="number">1</span>, y - r);</div><div class="line">        ey = min(height, y + r);</div><div class="line">        domain = IM(sx:ex, sy:ey);</div><div class="line">        maskM = templateM(sx + r - x + <span class="number">1</span>:ex + r - x + <span class="number">1</span>,...</div><div class="line">            sy + r - y + <span class="number">1</span>:ey + r - y + <span class="number">1</span>);</div><div class="line">        distances = <span class="built_in">abs</span>(domain - IM(x, y));</div><div class="line">        validPt = domain((maskM ~= <span class="number">0</span>) &amp; (distances &lt; distance/<span class="number">255</span>));</div><div class="line">        <span class="keyword">if</span> mean(validPt) &lt; threshold/<span class="number">255</span></div><div class="line">            PIM(x, y) = min(validPt);</div><div class="line">        <span class="keyword">else</span></div><div class="line">            PIM(x, y) = max(validPt);</div><div class="line">        <span class="keyword">end</span></div><div class="line">    <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<p>函数的第一个参数是图像，第二个是领域半径，第三个是容差，最后的是阈值。</p>
+<p>这样处理完的线稿图像算是比较完美的了~</p>
+<p><a href="https://miao.su/image/MYmOk" target="_blank" rel="external"><img src="https://miao.su/images/2017/09/16/perfect393e8.jpg" alt="最终的结果"></a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -123,7 +155,7 @@ The notation a:b:c is only valid within [] when used as the indexing or subs">
 
   <div class="article-tags">
   
-  <span></span> <a href="/tags/编程/">编程</a><a href="/tags/读书笔记/">读书笔记</a><a href="/tags/fluent-python/">fluent python</a><a href="/tags/python/">python</a><a href="/tags/切片/">切片</a>
+  <span></span> <a href="/tags/MATLAB/">MATLAB</a><a href="/tags/图像处理/">图像处理</a><a href="/tags/线稿/">线稿</a><a href="/tags/编程/">编程</a>
   </div>
 
 </div>
@@ -132,7 +164,7 @@ The notation a:b:c is only valid within [] when used as the indexing or subs">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://eleflea.github.io/2017/04/09/Fluent-Python-读书笔记（一）：切片对象/" data-title="Fluent Python 读书笔记（一）：切片对象 | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
+	  <div data-url="https://eleflea.github.io/2017/09/15/MATLAB图像处理：提取线稿/" data-title="MATLAB图像处理：提取线稿 | eleflea&#39;s Blog" data-tsina="null" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -145,19 +177,11 @@ The notation a:b:c is only valid within [] when used as the indexing or subs">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/04/17/为什么transition属性无效？/" title="为什么transition属性无效？">
-  <strong>上一篇：</strong><br/>
-  <span>
-  为什么transition属性无效？</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/29/python-requests-保持会话注意事项/"  title="python requests 保持会话注意事项">
+<a href="/2017/08/25/我与B站不得不说的故事/"  title="我与B站不得不说的故事">
  <strong>下一篇：</strong><br/> 
- <span>python requests 保持会话注意事项
+ <span>我与B站不得不说的故事
 </span>
 </a>
 </div>
@@ -166,7 +190,7 @@ The notation a:b:c is only valid within [] when used as the indexing or subs">
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/04/09/Fluent-Python-读书笔记（一）：切片对象/" data-title="Fluent Python 读书笔记（一）：切片对象" data-url="https://eleflea.github.io/2017/04/09/Fluent-Python-读书笔记（一）：切片对象/"></div>
+	<div class="ds-thread" data-thread-key="2017/09/15/MATLAB图像处理：提取线稿/" data-title="MATLAB图像处理：提取线稿" data-url="https://eleflea.github.io/2017/09/15/MATLAB图像处理：提取线稿/"></div>
 </section>
 
 
@@ -176,7 +200,7 @@ The notation a:b:c is only valid within [] when used as the indexing or subs">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">Contents</strong>
  
- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#0x00-切片对象"><span class="toc-number">1.</span> <span class="toc-text">0x00 切片对象</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#0x01-用法"><span class="toc-number">2.</span> <span class="toc-text">0x01 用法</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#创意"><span class="toc-number">1.</span> <span class="toc-text">创意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实现"><span class="toc-number">2.</span> <span class="toc-text">实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#改进"><span class="toc-number">3.</span> <span class="toc-text">改进</span></a></li></ol>
  
   </div>
 
