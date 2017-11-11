@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="eleflea's Blog">
 <meta property="og:description" content="初到 Bilibili我第一次来到B站还是在 2013 年，算起来那时应该是高一下半学期暑假。那时候的B站人还比较少，我来B站也只是看游戏区的（现在也是）。那时候B站还有很多直接外链别的视频网站的视频，也就是说片源在别人的服务器上，但是却没有广告。这也必将引起侵权纠纷，事实上也是如此。我当初看好B站就是因为它没有广告，还有弹幕，看起来就很爽，现在也大体保持免费无广告，还是挺好的。
 我在 2013">
-<meta property="og:updated_time" content="2017-08-25T02:26:20.283Z">
+<meta property="og:updated_time" content="2017-09-18T08:47:43.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="我与B站不得不说的故事">
 <meta name="twitter:description" content="初到 Bilibili我第一次来到B站还是在 2013 年，算起来那时应该是高一下半学期暑假。那时候的B站人还比较少，我来B站也只是看游戏区的（现在也是）。那时候B站还有很多直接外链别的视频网站的视频，也就是说片源在别人的服务器上，但是却没有广告。这也必将引起侵权纠纷，事实上也是如此。我当初看好B站就是因为它没有广告，还有弹幕，看起来就很爽，现在也大体保持免费无广告，还是挺好的。
@@ -129,8 +129,8 @@
 <p>要找到同时满足这么多条件的服务器可不容易。最后，我选择了 Vultr 的 $5/mo 版本，地区日本，每月 5 美金，流量 1000 GB ！延迟也比较低，在 90ms 左右，虽然玩游戏肯定不行，但是网页还是可以妙开的。终于可以愉快的玩耍了，然而，B站不同意。</p>
 <h3 id="我的解决方案"><a href="#我的解决方案" class="headerlink" title="我的解决方案"></a>我的解决方案</h3><p>对于看B站视频的卡顿，我想了很多办法。比较好的办法是下载下来，用 bililocal 加载弹幕看。然而我还是不爽，为什么不能在线愉快的看！终于，在不久之前，我灵光一闪，突然想到：我不能流畅的看是因为服务器认为我是来自日本的，我不得不用日本的服务器访问是因为视频流量太大。然而，检测我的地区的流量消耗又不大，我可以直接访问那个地址，用代理访问视频真实地址啊。</p>
 <p>要实现这点，只需要使用白名单，把需要直接访问的域名加入，不在名单中的域名使用代理访问。想到这，我稍微修改了 ss 的 pac.txt ，把它从黑名单改成了白名单：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> domains = &#123;</div><div class="line">    <span class="string">"interface.bilibili.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"192.168.1.1"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"google.com.hk"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"google.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"google.com.jp"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"youtube.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"googlevideo.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"neu.edu.cn"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"neu6.edu.cn"</span>: <span class="number">1</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxy = <span class="string">"__PROXY__"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> direct = <span class="string">'DIRECT;'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> hasOwnProperty = <span class="built_in">Object</span>.hasOwnProperty;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">FindProxyForURL</span>(<span class="params">url, host</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> suffix;</div><div class="line">    <span class="keyword">var</span> pos = host.lastIndexOf(<span class="string">'.'</span>);</div><div class="line">    pos = host.lastIndexOf(<span class="string">'.'</span>, pos - <span class="number">1</span>);</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (pos &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (hasOwnProperty.call(domains, host)) &#123;</div><div class="line">                <span class="keyword">return</span> direct;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> proxy;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        suffix = host.substring(pos + <span class="number">1</span>);</div><div class="line">        <span class="keyword">if</span> (hasOwnProperty.call(domains, suffix)) &#123;</div><div class="line">            <span class="keyword">return</span> direct;</div><div class="line">        &#125;</div><div class="line">        pos = host.lastIndexOf(<span class="string">'.'</span>, pos - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>除了B站要用的 interface.bilibili.com ，我还加入了几个我常用的不需要代理的域名（有 ipv6 的和校内的）。这份文件中的<code>domains</code>对象的属性是全局域名包括子域名，比如 bilibili.com 包括 所有其下的域名（interface.bilibili.com, www.bilibili.com …）。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// pac.txt</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> domains = &#123;</div><div class="line">    <span class="string">"interface.bilibili.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"google.com.hk"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"google.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"google.com.jp"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"youtube.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"googlevideo.com"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"neu.edu.cn"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"neu6.edu.cn"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"wikipedia.org"</span>: <span class="number">1</span>,</div><div class="line">    <span class="string">"npupt.com"</span>: <span class="number">1</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> neuIPv4 = [</div><div class="line">    <span class="function"><span class="params">x</span> =&gt;</span> (<span class="number">202118000000</span> &lt;= x &amp;&amp; <span class="number">202118031255</span> &gt;= x),</div><div class="line">    x =&gt; (<span class="number">219216064000</span> &lt;= x &amp;&amp; <span class="number">219216127255</span> &gt;= x),</div><div class="line">    x =&gt; (<span class="number">210030192000</span> &lt;= x &amp;&amp; <span class="number">210030207255</span> &gt;= x),</div><div class="line">    x =&gt; (<span class="number">202199000000</span> &lt;= x &amp;&amp; <span class="number">202199015255</span> &gt;= x),</div><div class="line">    x =&gt; (<span class="number">58154160000</span> &lt;= x &amp;&amp; <span class="number">58154255255</span> &gt;= x),</div><div class="line">    x =&gt; (<span class="number">118202000000</span> &lt;= x &amp;&amp; <span class="number">118202047255</span> &gt;= x),</div><div class="line">    x =&gt; (<span class="number">192168000000</span> &lt;= x &amp;&amp; <span class="number">192168255255</span> &gt;= x)</div><div class="line">];</div><div class="line"></div><div class="line"><span class="keyword">var</span> proxy = <span class="string">"__PROXY__"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> direct = <span class="string">'DIRECT;'</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> hasOwnProperty = <span class="built_in">Object</span>.hasOwnProperty;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">FindProxyForURL</span>(<span class="params">url, host</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span> (neuIPv4.map(<span class="function"><span class="params">x</span> =&gt;</span> x(host.split(<span class="string">'.'</span>)</div><div class="line">        .reduce(<span class="function">(<span class="params">x,y</span>) =&gt;</span> x * <span class="number">1000</span> + y * <span class="number">1</span>))).reduce(<span class="function">(<span class="params">x,y</span>) =&gt;</span> x || y)) &#123;</div><div class="line">        <span class="keyword">return</span> direct;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> suffix;</div><div class="line">    <span class="keyword">var</span> pos = host.lastIndexOf(<span class="string">'.'</span>);</div><div class="line">    pos = host.lastIndexOf(<span class="string">'.'</span>, pos - <span class="number">1</span>);</div><div class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (pos &lt;= <span class="number">0</span>) &#123;</div><div class="line">            <span class="keyword">if</span> (hasOwnProperty.call(domains, host)) &#123;</div><div class="line">                <span class="keyword">return</span> direct;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">return</span> proxy;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        suffix = host.substring(pos + <span class="number">1</span>);</div><div class="line">        <span class="keyword">if</span> (hasOwnProperty.call(domains, suffix)) &#123;</div><div class="line">            <span class="keyword">return</span> direct;</div><div class="line">        &#125;</div><div class="line">        pos = host.lastIndexOf(<span class="string">'.'</span>, pos - <span class="number">1</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>除了B站要用的 interface.bilibili.com ，我还加入了几个我常用的不需要代理的域名（有 ipv6 的和校内的）。这份文件中的<code>domains</code>对象的属性是全局域名包括子域名，比如 bilibili.com 包括 所有其下的域名（interface.bilibili.com, www.bilibili.com …）。neuIPv4 中设置的是校内的IPv4地址，我把它们换成了十进制数，用来判别访问的IP是不是在网段内。</p>
 <p>我用这份 pac 文件试了试，果真可以，再也不会出现视频卡顿的状况了！这份 pac 文件由 js 写成，因此还可以实现更精细的控制，这种欺骗服务器的方法也可以用在其他对地域有限制的网站上。</p>
   
 	</div>
@@ -221,7 +221,7 @@
 			
 		
 			
-				<li><a href="/tags/javascript/" title="javascript">javascript<sup>2</sup></a></li>
+				<li><a href="/tags/复杂度/" title="复杂度">复杂度<sup>2</sup></a></li>
 			
 		
 			
@@ -237,19 +237,7 @@
 			
 		
 			
-				<li><a href="/tags/fluent-python/" title="fluent python">fluent python<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/物理/" title="物理">物理<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/信息论/" title="信息论">信息论<sup>2</sup></a></li>
-			
-		
-			
-				<li><a href="/tags/复杂度/" title="复杂度">复杂度<sup>2</sup></a></li>
+				<li><a href="/tags/算法/" title="算法">算法<sup>2</sup></a></li>
 			
 		
 			
@@ -257,35 +245,47 @@
 			
 		
 			
-				<li><a href="/tags/算法/" title="算法">算法<sup>2</sup></a></li>
+				<li><a href="/tags/fluent-python/" title="fluent python">fluent python<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/实验/" title="实验">实验<sup>1</sup></a></li>
+				<li><a href="/tags/信息论/" title="信息论">信息论<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/requests/" title="requests">requests<sup>1</sup></a></li>
+				<li><a href="/tags/物理/" title="物理">物理<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/爬虫/" title="爬虫">爬虫<sup>1</sup></a></li>
+				<li><a href="/tags/javascript/" title="javascript">javascript<sup>2</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/C/" title="C++">C++<sup>1</sup></a></li>
+				<li><a href="/tags/绝缘体/" title="绝缘体">绝缘体<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/code-blocks/" title="code::blocks">code::blocks<sup>1</sup></a></li>
+				<li><a href="/tags/setTimeout/" title="setTimeout">setTimeout<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/undefined-reference/" title="undefined reference">undefined reference<sup>1</sup></a></li>
+				<li><a href="/tags/transition/" title="transition">transition<sup>1</sup></a></li>
 			
 		
 			
-				<li><a href="/tags/错误/" title="错误">错误<sup>1</sup></a></li>
+				<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/ORM/" title="ORM">ORM<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/flask/" title="flask">flask<sup>1</sup></a></li>
+			
+		
+			
+				<li><a href="/tags/sqlite/" title="sqlite">sqlite<sup>1</sup></a></li>
 			
 		
 		</ul>
